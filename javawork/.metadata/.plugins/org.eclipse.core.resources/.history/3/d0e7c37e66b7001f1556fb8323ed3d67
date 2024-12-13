@@ -1,0 +1,11 @@
+package day1211;
+
+public class Ex1DataType {
+
+	public static void main(String[] args) {
+		byte a = 127;
+		byte b = (byte)383-127;
+		System.out.println("a= "+a);
+		System.out.println("b= "+b);
+	}
+}

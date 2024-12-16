@@ -21,13 +21,21 @@ public class Ex13For {
 		for (int i=1; i<=5; i++) {
 			System.out.println(i+"번째 사람의 나이를 입력");
 			n=sc.nextInt();
+			// 0~100세를 벗어나는경우 다시 입력(인원 수 제외)
+			// continue : for문은 i++로 이동
+			if (n<0 || n>100) {
+				System.out.println("!!0~100세 사이로 다시 입력!!");
+				i--;
+				continue;
+			}
 			if (n>=40) {
 				o++;
 			}
 			sum += n;
+			u = i-o;
 		}
-		u = 5-o;
 		avg = sum/5.0;
+		
 		System.out.println("40세 이상: "+o);
 		System.out.println("40세 미만: "+u);
 		System.out.printf("평균 나이: %.1f",avg);

@@ -27,7 +27,7 @@ public class Ex12ArraySearch {
 		while(true) {
 			System.out.print("검색할 성씨는 ? (종료:exit) ");
 			searchName=sc.nextLine();
-			if(searchName.equalsIgnoreCase("EXIT")) {
+			if(searchName.toUpperCase().equals("EXIT")) {
 				System.err.println("프로그램을 종료합니다.");
 				break;
 			}

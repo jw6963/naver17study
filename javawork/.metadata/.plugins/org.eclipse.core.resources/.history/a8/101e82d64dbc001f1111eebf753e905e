@@ -12,17 +12,18 @@ public class Ex15ArrayRandom {
 		 * 중복되는 수가 있을 경우 수를 다시 구하시오
 		 */
 		
-		int cnt= 0;
+		
 		for(int i=0;i<numbers.length;i++) {
-			numbers[i] = (int)(Math.random()*50)+1;
+			int temp = ((int)(Math.random()*50)+1);
+			int cnt= 0;
 			// 이전에 발생한 값이랑 같을 경우 다시 구하기 - 중복처리 로직 추가
-			for (int j=0; j<i; j++) {
-				if (numbers[i] == numbers[j]) {
+			for (int j=0; j<i;j++) {
+				if (temp == numbers[j]) {
+					System.err.println("중복 발생");
 					cnt++;
-					System.err.println("중복 발생 "+cnt);
 					i--;
 					break;
-				} 
+				} else numbers[i]=temp;
 			}
 			
 		}
@@ -36,7 +37,7 @@ public class Ex15ArrayRandom {
 			}
 		}
 		for (int i=0; i<numbers.length; i++) {
-			System.out.print(i+1+": "+numbers[i]+"\t");
+			System.out.print(i+": "+numbers[i]+"\t");
 			if((i+1)%5==0) {
 				System.out.println();
 			}

@@ -14,15 +14,16 @@ public class Ex15ArrayRandom {
 		
 		int cnt= 0;
 		for(int i=0;i<numbers.length;i++) {
-			numbers[i] = (int)(Math.random()*50)+1;
+			int tmp = (int)(Math.random()*50)+1;
+			System.out.println(tmp);
 			// 이전에 발생한 값이랑 같을 경우 다시 구하기 - 중복처리 로직 추가
-			for (int j=0; j<i; j++) {
-				if (numbers[i] == numbers[j]) {
+			for (int j=1; j<i;j++) {
+				if (tmp == numbers[j]) {
 					cnt++;
 					System.err.println("중복 발생 "+cnt);
 					i--;
 					break;
-				} 
+				} else numbers[i]=tmp;
 			}
 			
 		}

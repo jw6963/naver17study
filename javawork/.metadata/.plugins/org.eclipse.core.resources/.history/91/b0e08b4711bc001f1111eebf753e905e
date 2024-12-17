@@ -1,0 +1,42 @@
+package day1217;
+
+import java.util.Date;
+import java.util.Scanner;
+
+public class Ex1Calendar {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* 
+		 * 년도와 월을 입력하면 해당 월의 달력을 출력하시오 
+		 * 1. 첫째날이 무슨 요일인가? 요일만큼 \t 넣기
+		 * 2. 그 월이 며칠까지 있는가
+		 * 3. 윤년 체크
+		 */
+		Scanner sc = new Scanner(System.in);
+		Date date = new Date();
+		int inputYear, inputMonth;
+		int endDays; // 며칠까지 있는지
+		int weekDay; // 요일 숫자
+		boolean leapYear;
+
+		System.out.println("[ 달력 만들기 ]");
+		System.out.print("년도 입력 : ");
+		inputYear = sc.nextInt();
+		System.out.print("월 입력 : ");
+		inputMonth = sc.nextInt();
+		// 1~12월이 아닌 경우 프로그램 종료
+		if(inputMonth<1 || inputMonth>12 || inputYear<1) {
+			System.out.println("잘못된 입력입니다");
+			return;
+		}
+		
+		// 윤년 체크
+		leapYear=inputYear%4==0 && inputYear%100!=0 || inputYear%400==0;
+		if (leapYear) System.out.println(inputYear+"년도는 윤년입니다");
+		else System.out.println(inputYear+"년도는 평년입니다");
+		
+		
+	}
+
+}

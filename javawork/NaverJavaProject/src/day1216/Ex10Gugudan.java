@@ -27,8 +27,9 @@ public class Ex10Gugudan {
 				System.out.printf("%d*%d=%d\t",j,i,result);
 			}
 			System.out.println();
+			
 		}
 
 	}
-
+	
 }

@@ -1,0 +1,18 @@
+,package day1218;
+
+public class Book223 {
+
+	String nation = "대한민국";
+	String name;
+	String ssn;
+	
+	public Book223(String n, String s) {
+		name = n;
+		ssn = s;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

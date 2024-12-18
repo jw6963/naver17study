@@ -1,0 +1,26 @@
+package day1217;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+public class Book125 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] sum = {0};
+		
+		List<Integer> a = new ArrayList<>();
+		a.forEach((number)->{
+			
+			sum[0] +=number;
+		});
+		System.out.println(sum[0]);
+		
+		String[] aa;
+		
+		IntStream
+
+	}
+
+}

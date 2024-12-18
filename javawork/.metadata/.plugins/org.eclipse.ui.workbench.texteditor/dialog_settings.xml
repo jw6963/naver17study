@@ -3,10 +3,12 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="replacehistory">
+		<item value="names"/>
 		<item value="&quot;"/>
 		<item value="f"/>
 	</list>
 	<list key="searchhistory">
+		<item value="data"/>
 		<item value="&apos;"/>
 		<item value="ln"/>
 	</list>

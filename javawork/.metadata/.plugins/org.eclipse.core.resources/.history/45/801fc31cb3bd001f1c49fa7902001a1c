@@ -1,0 +1,17 @@
+package day1219;
+
+class Apple {
+//	Apple( ){
+//		System.out.println("default constructor.");
+//	}
+}
+
+public class Ex3Constructor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Apple apple = new Apple(); // 생성자 자동 호출
+
+	}
+
+}

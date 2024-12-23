@@ -1,0 +1,23 @@
+package day1223;
+
+
+abstract class AbstEx {
+	abstract public void show();
+}
+
+public class Ex3InnerClass {
+
+	AbstEx abst1= new AbstEx() {
+		
+		@Override
+		public void show() {
+			// TODO Auto-generated method stub
+			System.out.println("show 호출");
+		}
+	};
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,16 @@
+package day1223;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class Ex13FileException {
+
+	public static void scoreRead() throws FileNotFoundException, IOException {
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

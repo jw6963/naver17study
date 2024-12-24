@@ -1,6 +1,7 @@
 package day1224;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -69,7 +70,15 @@ public class Ex4FileReadWrite {
 	}
 	
 	public static void fileDelete() {
-		
+		// 파일 삭제
+		File file=new File(FILENAME);
+		if(file.exists()) {
+			System.out.println("파일을 삭제합니다(모든 멤버 삭제됨)");
+			file.delete();
+		} else {
+			System.out.println("삭제할 파일이 없습니다.");
+		}
+		System.out.println();
 	}
 	
 	public static int getMenu() {

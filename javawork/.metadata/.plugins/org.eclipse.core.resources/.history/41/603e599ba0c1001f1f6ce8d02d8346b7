@@ -1,0 +1,41 @@
+package day1224;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Ex1FileScore {
+
+	public static void scoreRead() {
+		FileReader fr=null;
+		BufferedReader br=null;
+		
+		int cnt=0, sum=0;
+		double avg;
+		
+		// 생성
+		try {
+			fr= new FileReader("C:\\Users\\jw\\Desktop\\naver1210\\studye\\score.txt");
+			System.out.println("파일 존재함!");
+		} catch (FileNotFoundException e) {
+			// TODO: handle exception
+			System.out.println("파일을 찾을 수 없다: "+e.getMessage());
+		} finally {
+			try {
+				fr.close();
+			} catch (IOException|NullPointerException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		scoreRead();
+
+	}
+
+}

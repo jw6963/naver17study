@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.crypto.NullCipher;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -56,7 +57,7 @@ public class Ex5TableStudent extends JFrame{
 			try {
 				br.close();
 				fr.close();
-			} catch (IOException e) {
+			} catch (IOException|NullPointerException e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}

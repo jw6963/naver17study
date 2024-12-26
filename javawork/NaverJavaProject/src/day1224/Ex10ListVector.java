@@ -11,6 +11,7 @@ public class Ex10ListVector {
 		// 할당 수보다 많아질 경우 10개 단위로 늘어난다
 		List<String> list1= new Vector<String>(); // 기본 10개가 할당
 		List<String> list2= new Vector<String>(5); // 기본 5개가 할당
+		List<String> list3= new Vector<String>(5,3); // 기본 5개가 할당, 3개씩 증가
 		
 		// capacity()메서드는 오버라이드 메서드가 아님. 다운 캐스팅 해줘야 한다.
 		System.out.println("list1 의 데이터 갯수"+list1.size()+", 할당 갯수: "+ ((Vector<String>)list1).capacity()); 

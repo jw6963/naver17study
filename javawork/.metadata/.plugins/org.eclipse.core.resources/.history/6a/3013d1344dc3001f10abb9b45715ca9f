@@ -1,0 +1,35 @@
+package day1226;
+
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.JFrame;
+import javax.swing.JTable;
+
+public class Ex3JTableSawon extends JFrame{
+	JTable table;
+	List<Sawon> sawonList=new Vector<Sawon>();
+	public Ex3JTableSawon() {
+		super("사원 파일 읽기");
+		this.setBounds(300,100,300,300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.initDesign();
+		this.setVisible(true);
+	}
+	
+	public void initDesign() {
+		
+	}
+	
+	public void sawonFileRead() {
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new Ex3JTableSawon(); // 생성자 호출
+
+		
+	}
+
+}

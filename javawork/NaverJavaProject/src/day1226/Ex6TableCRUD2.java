@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,7 +24,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class Ex6TableCRUD extends JFrame{
+public class Ex6TableCRUD2 extends JFrame{
 	static final String FILENAME="c:/Users/jw/Desktop/Naver1210/study/student.txt";
 	List<Student> list = new ArrayList<Student>();
 	JTable table;
@@ -31,7 +32,7 @@ public class Ex6TableCRUD extends JFrame{
 	JTextField tfName, tfKor,tfEng,tfName2;
 	JButton btnAdd,btnDel;
 
-	public Ex6TableCRUD() {
+	public Ex6TableCRUD2() {
 		super("학생 성적 관리");
 		this.setBounds(300,100,400,300);
 
@@ -90,6 +91,29 @@ public class Ex6TableCRUD extends JFrame{
 			}
 		}
 	}
+	
+	// List의 데이터를 테이블에 출력해주는 메서드
+	public void writeTableData() {
+		// 기존의 테이블에 출력된 데이터를 삭제 후 다시 추가
+		tableModel.setRowCount(0);
+		
+		for (Student stu:list) {
+			Vector<String> data = new Vector<String>();
+			int kor=stu.getKor();
+			int eng=stu.getEng();
+			int sum=kor+eng;
+			double avg=sum/2.0;
+			
+			data.add(stu.getName());
+			data.add(String.valueOf(kor));
+			data.add(String.valueOf(eng));
+			data.add(String.valueOf(sum));
+			data.add(String.valueOf(avg));
+			
+			// table에 추가(추가하는 메서드도 모델이 갖고 있음)
+			tableModel.addRow(data);
+		}
+	}
 
 	public void initDesign() {
 		// 파일 읽어오기
@@ -97,19 +121,13 @@ public class Ex6TableCRUD extends JFrame{
 
 		// 테이블을 생성해서 center에 추가
 		String[] title= {"이름","국어","영어","총점","평균"};
-		String[][] data = new String[list.size()][title.length];
 
-		for (int i=0; i<list.size();i++) {
-			Student a =list.get(i);
-			data[i][0] = list.get(i).getName();
-			data[i][1] = String.valueOf(a.getKor());
-			data[i][2] = String.valueOf(a.getEng());
-			data[i][3] = String.valueOf(a.getEng()+a.getKor());
-			data[i][4] = String.valueOf((a.getEng()+a.getKor())/2.0);
-		}
-		tableModel=new DefaultTableModel(data,title); // 일단 행갯수는 0으로 생성
-//		tableModel.setValueAt(data, list.size(), title.length);
+		tableModel=new DefaultTableModel(title,0); // 일단 행갯수는 0으로 생성
 		table=new JTable(tableModel);
+		
+		// Table에 데이터 추가하기
+		this.writeTableData();
+		
 		// frame에 추가
 		this.add("Center",new JScrollPane(table));
 
@@ -136,6 +154,7 @@ public class Ex6TableCRUD extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				// 입력한 데이터를 읽어서 Student에 넣은 후 다시 list에 추가
 				String name = tfName.getText();
 		        int kor=0, eng=0;
 		        if(name.isEmpty()) {
@@ -151,15 +170,12 @@ public class Ex6TableCRUD extends JFrame{
 		            return;
 				} 
 				
-				Student newStudent = new Student(name,kor,eng);
-				addStudent(newStudent);
-				tableModel.addRow(new Object[] {
-			            newStudent.getName(),
-			            newStudent.getKor(),
-			            newStudent.getEng(),
-			            newStudent.getKor() + newStudent.getEng(),
-			            (newStudent.getKor() + newStudent.getEng()) / 2.0
-			        });
+				// 새 데이터 추가
+				Student stu = new Student(name,kor,eng);
+				list.add(stu);
+				
+				// Table 다시 출력
+				writeTableData();
 				
 				JOptionPane.showMessageDialog(this.MyFrame, "추가되었습니다.");
 				tfName.setText("");
@@ -234,10 +250,6 @@ public class Ex6TableCRUD extends JFrame{
 		}
 	}
 	
-	public void addStudent(Student student) {
-		list.add(student);
-	}
-	
 	public int getSearchName(String name) {
 		int idx=-1;
 		for (int i=0; i<list.size(); i++) {
@@ -253,7 +265,7 @@ public class Ex6TableCRUD extends JFrame{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Ex6TableCRUD ex6 = new Ex6TableCRUD();
+		Ex6TableCRUD2 ex6 = new Ex6TableCRUD2();
 	}
 
 }

@@ -254,6 +254,8 @@ public class Ex6TableCRUD extends JFrame{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Ex6TableCRUD ex6 = new Ex6TableCRUD();
+		Character ch;
+		System.out.println(ch.isUpperCase('D'));
 	}
 
 }

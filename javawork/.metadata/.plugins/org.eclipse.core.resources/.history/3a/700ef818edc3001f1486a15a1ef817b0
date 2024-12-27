@@ -23,7 +23,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class Ex6TableCRUD extends JFrame{
+public class Ex6TableCRUD2 extends JFrame{
 	static final String FILENAME="c:/Users/jw/Desktop/Naver1210/study/student.txt";
 	List<Student> list = new ArrayList<Student>();
 	JTable table;
@@ -31,7 +31,7 @@ public class Ex6TableCRUD extends JFrame{
 	JTextField tfName, tfKor,tfEng,tfName2;
 	JButton btnAdd,btnDel;
 
-	public Ex6TableCRUD() {
+	public Ex6TableCRUD2() {
 		super("학생 성적 관리");
 		this.setBounds(300,100,400,300);
 
@@ -253,7 +253,7 @@ public class Ex6TableCRUD extends JFrame{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Ex6TableCRUD ex6 = new Ex6TableCRUD();
+		Ex6TableCRUD2 ex6 = new Ex6TableCRUD2();
 	}
 
 }

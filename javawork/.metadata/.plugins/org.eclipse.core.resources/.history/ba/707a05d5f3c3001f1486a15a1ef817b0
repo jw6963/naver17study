@@ -1,0 +1,38 @@
+package day1227;
+
+class GenericType<T> {
+	T[] v;
+	public void set(T[] n) {
+		v=n;
+	}
+	
+	public void print() {
+		for(T s:v) {
+			System.out.println(s+" ");
+		}
+		System.out.println();
+	}
+}
+public class Ex1Type {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String[] s = {"장미꽃","안개꽃","국화꽃","벚꽃"};
+		Integer[] n = {80,45,75,43,86};
+		Double[] d = {3.5,5.5,6.4,23.5};
+		
+		GenericType<String> gt1=new GenericType();
+		gt1.set(s);
+		gt1.print();
+		
+		GenericType<Integer> gt2=new GenericType();
+		gt1.set(n);
+		gt1.print();
+		
+		GenericType<Double> gt3=new GenericType();
+		gt1.set(d);
+		gt1.print();
+	}
+
+}

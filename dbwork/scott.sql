@@ -130,7 +130,8 @@ select round(3.4,0), ceil(3.4), floor(3.4) from dual; // 3,4,3
 select round(328947,-2) from dual; // 328900 
 select round(328467,-2) from dual; // 328500
 
--- power(M,N) : M의 N승 값을 구함. mod(M,N) : M을 N으로 나눈 나머지
+-- power(M,N) : M의 N승 값을 구함. 
+-- mod(M,N) : M을 N으로 나눈 나머지
 select power(3,3), mod(10,3) from dual; // 27, 1
 
 -- 문자함수 concat(두 문자 더하기), lower(소문자), upper(대문자), initcap(첫글자만 대문자)

@@ -46,6 +46,7 @@ public class Ex2ObjectArray {
 			writeStudent(stuArray[i]);
 		}
 
+		
 	}
 	
 

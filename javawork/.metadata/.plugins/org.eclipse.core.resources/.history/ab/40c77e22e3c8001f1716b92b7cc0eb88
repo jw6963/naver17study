@@ -23,6 +23,10 @@ public class Ex2Random {
 		int rnd = (int)(Math.random()*100)+1;
 		int su;
 		int i=1;
+		String s = "dsSDds";
+		s=s.toUpperCase();
+		System.out.println(s);
+		System.out.println(s.indexOf("s"));
 		
 		
 		while(true) {

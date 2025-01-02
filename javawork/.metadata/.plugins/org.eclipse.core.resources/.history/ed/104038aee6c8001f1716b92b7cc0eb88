@@ -22,8 +22,20 @@ public class Ex2Random {
 		Scanner sc = new Scanner(System.in);
 		int rnd = (int)(Math.random()*100)+1;
 		int su;
-		int i=1;
-		
+//		int i=1;
+		int[] answer = {};
+		long n = 134325235;
+        String str = String.valueOf(n);
+        String s = "";
+        for (int i=str.length()-1; i>=0; i--) {
+            s+= s+str.charAt(i);
+        }
+        for (int i=0; i<s.length(); i++) {
+            answer[i] = s.charAt(i);
+        }
+        for (int a:answer) {
+        	System.out.println(a);
+        }
 		
 		while(true) {
 			System.out.printf("%d회 : ",i);

@@ -24,7 +24,6 @@ public class Ex2Random {
 		int su;
 		int i=1;
 		
-		
 		while(true) {
 			System.out.printf("%d회 : ",i);
 			i++;

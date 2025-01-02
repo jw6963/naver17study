@@ -23,7 +23,11 @@ public class Ex2Random {
 		int rnd = (int)(Math.random()*100)+1;
 		int su;
 		int i=1;
-		
+		String s = "dsSDds";
+		s=s.toUpperCase();
+		System.out.println(s);
+		System.out.println(s.indexOf('S'));
+		System.out.println(s.substring(0,1));
 		
 		while(true) {
 			System.out.printf("%d회 : ",i);

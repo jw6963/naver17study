@@ -1,0 +1,38 @@
+package day0103db;
+
+import java.util.Scanner;
+
+public class score_exception {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int score;
+		int[] scoArr = {};
+		
+		System.out.println("점수 입력(종료: -1)");
+		int i = 0;
+		while (true) {
+			try {
+				score=sc.nextInt();
+				if (score == -1) {
+					break;
+				}
+				if (score>100 || score <0) {
+					System.out.println("유효한 점수가 아닙니다. 다시 입력하세요.");
+				} else {
+					scoArr[i] = score;
+				}
+			} catch (NumberFormatException e) {
+				// TODO: handle exception
+				System.out.println("잘못된 입력입니다. 다시 입력하세요.");
+			}
+		}
+		System.out.println("최고 점수 : ");
+		System.out.println("최저 점수 : ");
+		System.out.println("합계 : ");
+		System.out.println("평균 : ");
+
+	}
+
+}

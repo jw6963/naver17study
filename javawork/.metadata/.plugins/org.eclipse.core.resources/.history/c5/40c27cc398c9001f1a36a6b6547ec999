@@ -1,0 +1,68 @@
+package day0103db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Ex5MysqlInsertSelect {
+	static final String MYSQL_DRIVER="com.mysql.cj.jdbc.Driver";
+	String url="jdbc:mysql://localhost:3306/study502?serverTimezone=Asia/Seoul";
+	String username="root";
+	String pw="0000";
+
+	public Ex5MysqlInsertSelect() {
+		try {
+			Class.forName(MYSQL_DRIVER);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Mysql 드라이버 오류: "+e.getMessage());
+		}
+	}
+
+	public Connection getConnection() {
+		Connection conn=null;
+		try {
+			conn = DriverManager.getConnection(url,username,pw);
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		return conn;
+	}
+
+	public void insertPerson(String name, String blood, int age, String hp) {
+
+	}
+
+	public void writePerson() {
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ex5MysqlInsertSelect ex5 = new Ex5MysqlInsertSelect();
+		Scanner sc = new Scanner(System.in);
+
+		while(true) {
+			System.out.println("1. 데이터 추가 2. 전체 출력 5. 종료");
+			System.out.println("select menu?");
+			int menu = Integer.parseInt(sc.nextLine());
+
+			switch(menu) {
+			case 1: {
+				break;
+			}
+			case 2: {
+				ex5.writePerson();
+				break;
+			}
+			default: {
+				System.out.println("** 프로그램을 종료. **");
+				System.exit(0);;
+			}
+			}
+		}
+
+	}
+
+}

@@ -1,3 +1,4 @@
+use study502;
 create table person(
 	num smallint auto_increment primary key,
 	name varchar(20),

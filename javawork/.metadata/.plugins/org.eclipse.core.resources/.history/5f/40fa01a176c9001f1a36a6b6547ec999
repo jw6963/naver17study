@@ -1,0 +1,11 @@
+package day0103db;
+
+public class Ex2MysqlConnect {
+	static final String MYSQL_DRIVER="com.mysql.cj.jdbc.Driver";
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

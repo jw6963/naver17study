@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;day0103&apos; to &apos;day0103db&apos;&#x0D;&#x0A;- Original project: &apos;NaverJavaProject&apos;&#x0D;&#x0A;- Original element: &apos;NaverJavaProject/src/day0103&apos;&#x0D;&#x0A;- Renamed element: &apos;NaverJavaProject/src/day0103db&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;day0103&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;day0103" name="day0103db" qualified="false" references="true" stamp="1735868136873" textual="false" version="1.0"/>
+</session>

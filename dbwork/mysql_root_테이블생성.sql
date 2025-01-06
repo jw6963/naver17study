@@ -58,3 +58,4 @@ update person set blood='O', age=18 where name='고릴라';
 -- delete
 delete from person where name ='강호동';
 commit;
+select * from person;

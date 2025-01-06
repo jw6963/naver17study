@@ -1,0 +1,35 @@
+package day0106db;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+public class Ex2ShopTable extends JFrame{
+	JTextField tfSang,tfSu,tfDan;
+	JButton btnAdd,btnDel,btnUpdate;
+	DefaultTableModel tableModel;
+	JTable table;
+	
+	ShopModel shopModel = new ShopModel();
+	
+	public Ex2ShopTable() {
+		super("shop 관리");
+		this.setBounds(300,100,400,400);
+		this.initDesign();
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+	
+	public void initDesign() {
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ex2ShopTable ex2 = new Ex2ShopTable();
+
+	}
+
+}

@@ -1,0 +1,38 @@
+package day0106db;
+
+import db.connect.MysqlConnect;
+
+public class Ex1ShopMysql {
+	MysqlConnect mysqlConnect= new MysqlConnect();
+
+	// shop에 상품 추가
+	public void insertShop(String sangpum, int su, int danga) {
+		System.out.println("상품을 추가합니다.");
+	}
+	
+	// 전체 shop 데이터 출력
+	public void writeShop() {
+		System.out.println("전체 상품을 출력합니다.");
+	}
+	
+	// 상품 삭제
+	public void deleteShop(String sangpum) {
+		System.out.println("상품을 삭제합니다.");
+	}
+	
+	// 상품 조회
+	public void searchShop(String sangpum) {
+		System.out.println("상품을 조회합니다.");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ex1ShopMysql ex1 = new Ex1ShopMysql();
+		ex1.insertShop(null, 0, 0);
+		ex1.writeShop();
+		ex1.deleteShop(null);
+		ex1.searchShop(null);
+
+	}
+
+}

@@ -1,0 +1,8 @@
+package day0106db;
+
+import db.connect.MysqlConnect;
+
+public class PersonModel {
+
+	MysqlConnect connect = new MysqlConnect();
+}

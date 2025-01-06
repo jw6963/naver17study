@@ -17,6 +17,13 @@ public class ShopDto {
 		this.su = su;
 		this.danga = danga;
 	}
+	
+	public ShopDto(String sangpum, int su, int danga) {
+		super();
+		this.sangpum = sangpum;
+		this.su = su;
+		this.danga = danga;
+	}
 
 	public int getIdx() {
 		return idx;
@@ -49,7 +56,6 @@ public class ShopDto {
 	public void setDanga(int danga) {
 		this.danga = danga;
 	}
-	
 	
 
 }

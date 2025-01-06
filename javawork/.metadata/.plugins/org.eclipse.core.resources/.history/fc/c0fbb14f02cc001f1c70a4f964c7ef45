@@ -1,0 +1,17 @@
+package day0106db;
+/*
+ * Mysql의 person table 관리 프로그램 만들기
+ * 파일명: Ex3PersonTable, PersonModel, PersonDto
+ * 아까와 같은 구조로 처음 시작 시 table에 person 데이터 출력
+ * (출력 컬럼 : num,name,age,hp,blood)
+ * 상단에 이름, 나이, 혈액형, 핸드폰 입력하고 [직원추가] 버튼 클릭 시 db에 추가 후 다시 전체 출력하기
+ * 테이블의 데이터 클릭 후 [직원 삭제] 버튼 클릭 시 db에서 행 당 직원 삭제 후 다시 전체 출력하기
+ */
+public class Ex3PersonTable {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,22 @@
+package day0107db;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import db.connect.MysqlConnect;
+
+public class FoodModel {
+	MysqlConnect connect = new MysqlConnect();
+
+	// insert 메서드
+	public void foodMenuInsert(String foodName, int foodPrice, int foodSize) {
+		Connection conn = connect.getConnection();
+		PreparedStatement pstmt = null;
+		String sql = "insert into foodrest (foodname,foodprice,foodsize) values (?,?,?)";
+		
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, foodName);
+		pstmt.setInt(2, foodPrice);
+		pstmt.setInt(3, foodSize);
+	}
+}

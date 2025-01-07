@@ -3,12 +3,15 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="replacehistory">
+		<item value="Ex3PersonTable"/>
 		<item value=","/>
 		<item value="names"/>
 		<item value="&quot;"/>
 		<item value="f"/>
 	</list>
 	<list key="searchhistory">
+		<item value="Ex2ShopTable"/>
+		<item value="btnAdd"/>
 		<item value="Mysql 접속"/>
 		<item value="addStudent"/>
 		<item value="\"/>

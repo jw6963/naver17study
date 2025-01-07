@@ -1,0 +1,8 @@
+package day0107db;
+
+import db.connect.MysqlConnect;
+
+public class FoodModel {
+	MysqlConnect connect = new MysqlConnect();
+
+}

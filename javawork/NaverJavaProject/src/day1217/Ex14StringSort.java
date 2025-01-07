@@ -20,6 +20,7 @@ public class Ex14StringSort {
 		for (String a:names) {
 			System.out.println(a);
 		}
+		
 	}
 
 }

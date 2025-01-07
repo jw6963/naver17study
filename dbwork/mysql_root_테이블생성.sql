@@ -59,3 +59,18 @@ update person set blood='O', age=18 where name='고릴라';
 delete from person where name ='강호동';
 commit;
 select * from person;
+
+-- 연습용 테이블 생성
+create table study502.shop(
+	idx smallint auto_increment primary key,
+	sangpum varchar(30),
+	su smallint default 1,
+	danga int,
+	ipgoday datetime
+);
+select * from shop;
+select * from study502.person;
+use study502;
+select * from person;
+desc person;
+insert into study502.person (name,age,blood,hp,today) values ("강호동",32,"B","010-4234-4334",now());

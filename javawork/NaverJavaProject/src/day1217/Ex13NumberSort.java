@@ -21,6 +21,16 @@ public class Ex13NumberSort {
 			System.out.println(a);
 		}
 
+		int i =0;
+		long answer =0;
+		long n = 142445359;
+        while (true) {
+            if (n == Math.pow(i,2)) {
+                answer=(long) Math.pow(i+1,2);
+                break;
+            }
+        }
+        System.out.println(answer);
 	}
 
 }

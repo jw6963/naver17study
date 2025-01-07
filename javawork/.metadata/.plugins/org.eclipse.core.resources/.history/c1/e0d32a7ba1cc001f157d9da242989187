@@ -1,0 +1,56 @@
+package day0107db;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Vector;
+
+import com.mysql.cj.xdevapi.Result;
+
+import db.connect.MysqlConnect;
+
+public class FoodModel {
+	MysqlConnect connect = new MysqlConnect();
+
+	// insert 메서드
+	public void foodMenuInsert(String foodName, int foodPrice, String foodSize) {
+		Connection conn = connect.getConnection();
+		PreparedStatement pstmt = null;
+		String sql = "insert into foodrest (foodname,foodprice,foodsize) values (?,?,?)";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, foodName);
+			pstmt.setInt(2, foodPrice);
+			pstmt.setString(3, foodSize);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			connect.dbClose(pstmt, conn);
+		}
+		
+	}
+	
+	// 전체 메뉴 반환 메서드
+	public List<Vector<String>> getAllMenus() {
+		List<Vector<String>> list = new Vector<Vector<String>>();
+		Connection conn = connect.getConnection();
+		PreparedStatement pstmt= null;
+		Result rs = null;
+		
+		String sql="select * from foodrest order by num";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally connect.dbClose(rs, pstmt, conn);
+		
+		
+		return list;
+	}
+}

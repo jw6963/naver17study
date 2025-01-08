@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.two>img{
+            width: 100px;
+            height: 120px;
+            border-style: groove;
+            border-width: 5px;
+            border-color: hotpink;
+        }
+        div.three>img{
+            width: 100px;
+            height: 100px;
+            border: solid 2px gray;
+            border-radius: 100px;
+        }
+        div.one>img{
+            border-radius: 10px 20px 30px 40px;
+        }
+
+        #twoloc{
+            position: absolute;
+            left: 400px;
+            top:100px;
+            border: solid 2px gray;
+            width: 300px;
+            height: 150px;
+            text-align: center; /* 수평방향의 가운데*/
+            padding-top: 20px; /* 상단의 안쪽 여백 지정*/
+        }
+        div.three>h3{
+            width: 300px;
+            text-align: center;
+            border: inset 4px gold;
+            /* 글자에 대한 그림자 */
+            text-shadow: 3px 3px 3px gray;
+        }
+        div.three{
+            border: solid 5px red;
+            width: 400px;
+            box-shadow: 5px 5px 5px orange;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>img tag 연습</h2>
+    <div class="one">
+        <img alt="박보영" src="../photo/12.jpg"
+        title="박보영입니다." width="100px" border="5" hspace="20" vspace="20"> 하늘은 맑고 바람이 좋습니다<br>오늘 점심은 뭐 먹을까요?
+    </div>
+    <div class="two" id="twoloc">
+        <img alt="수지" src="../photo/19.jpg">
+        <img alt="박신혜" src="../photo/13.jpg">
+    </div>
+    <div class="three">
+        <h3>Shop 제품들</h3>
+        <img alt="" src="../photo2/14.jpg" title="신발들">
+        <img alt="" src="../photo2/30.jpg" title="머리띠">
+    </div>
+</body>
+</html>

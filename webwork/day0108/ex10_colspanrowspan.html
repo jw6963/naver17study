@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.tb1>table td {
+            width: 100px;
+            height: 50px;
+            border: 1px solid gray;
+        }
+        table tr {
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tb1">
+        <table style="border: 1px solid black">
+            <tr >
+                <td rowspan="3" bgcolor="skyblue" valign="top">일</td>
+                <td colspan="3" bgcolor="pink">이</td>
+            </tr>
+            <tr>
+                <td colspan="2" bgcolor="pink">삼</td>
+
+                <td rowspan="3" bgcolor="skyblue" valign="bottom">사</td>
+            </tr>
+            <tr>
+                <td>오</td>
+                <td>육</td>
+            </tr>
+            <tr>
+                <td colspan="3" bgcolor="pink">칠</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

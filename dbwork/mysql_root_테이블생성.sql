@@ -74,3 +74,4 @@ use study502;
 select * from person;
 desc person;
 insert into study502.person (name,age,blood,hp,today) values ("강호동",32,"B","010-4234-4334",now());
+

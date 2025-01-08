@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        div.figure figure{
+            float:left;
+            width:110px;
+        }
+        div.figure>figure>figcaption{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- behavior: 기본은 scroll, 이외 slide,alternate-->
+    <marquee width="400" behavior="" direction="">Have a <mark>Nice</mark> Day!!</marquee>
+    <marquee width="400" behavior="slide" >안녕하세요</marquee>
+    <!-- direction: 기본값은 left -->
+    <marquee width="400" behavior="slide" direction="right">안녕하세요</marquee>
+    <div>
+        <a href="https://www.naver.com">
+            <img src="../photo/K-037.png" alt="">
+            <b>Naver</b>
+        </a>
+    </div>
+    <div>
+        <a href="https://www.nate.com">
+            <figure>
+                <img src="../photo/K-041.png" alt="">
+                <figcaption style="padding-left: 33px;">
+                    <b>Nate</b>
+                </figcaption>
+            </figure>
+        </a>
+        <a href="../photo/K-049.png">
+            <figure>
+                <img src="../photo/K-049.png" alt="">
+                <figcaption>
+                    <b>어여쁜 유리잔</b>
+                </figcaption>
+            </figure>
+        </a>
+    </div>
+    <hr>
+    <div class="figure">
+        <marquee>
+        <figure>
+            <img src="../photo/17.jpg" alt="">
+            <figcaption>신민아</figcaption>
+        </figure>
+        <figure>
+            <img src="../photo/18.jpg" alt="">
+            <figcaption>신세경</figcaption>
+        </figure>
+        <figure>
+            <img src="../photo/15.jpg" alt="">
+            <figcaption>설현</figcaption>
+        </figure>
+    </marquee>
+    </div>
+</body>
+</html>

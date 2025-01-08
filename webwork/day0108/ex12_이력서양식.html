@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이력서 양식</title>
+    <style>
+        div{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        div.title {
+            border: 2px solid black;
+            height: 50px;
+            font-size: 2.3em;
+            text-align: center;
+            color: white;
+            background-color:burlywood;
+            margin-bottom: 20px;
+        }
+        table.tb1{
+            width: 100%;
+            border: 2px solid black;
+            border-collapse: collapse;
+            font-family: 'Jua';     
+        }
+        
+        .opt{
+            background-color: burlywood;
+            text-align: center;
+            font-weight: 700;
+        }
+        table.tb1 td {
+            width: 17%;
+            border: 1px solid black;
+            height: 40px;
+        }
+        table.tb2{
+            width: 100%;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        table.tb2 td {
+            width: 17%;
+            border: 1px solid black;
+            height: 40px;
+        }
+        table.tb3{
+            width: 100%;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        table.tb3 td {
+            width: 25%;
+            border: 1px solid black;
+            height: 40px;
+        }
+        .dd{
+            width:20px !important;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 0 100px 0 100px;">
+        <div class="title">
+            <b>이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;력&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;서</b>
+        </div>
+        <table class="tb1">
+            <tr>
+                <td class="opt">지원구분</td>
+                <td align="center">신입( )/경력( )</td>
+                <td class="opt">지원부문</td>
+                <td></td>
+                <td class="opt">희망연봉</td>
+                <td align="right">만 원&nbsp;</td>
+            </tr>
+        </table>
+        <table class="tb2" style="margin-top: 20px;">
+            <tr>
+                <td rowspan="5" align="center"><strong>사 진</strong></td>
+                <td class="opt">성 명</td>
+                <td></td>
+                <td class="opt">영문</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="opt">생년월일</td>
+                <td></td>
+                <td class="opt">성별</td>
+                <td align="center">남( )/여( )</td>
+            </tr>
+            <tr>
+                <td class="opt">현주소</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td class="opt">연락처</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td class="opt">이메일</td>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+        <table class="tb3" style="margin-top: 20px;">
+            <tr>
+                <td class="dd opt" rowspan="4">학력사항</td>
+                <td class="opt">기간</td>
+                <td class="opt">학교명</td>
+                <td class="opt">전공</td>
+                <td class="opt">학점</td>
+            </tr>
+            <tr>
+                <td align="center">-</td>
+                <td align="right">고등학교&nbsp;</td>
+                <td></td>
+                <td align="center">/</td>
+            </tr>
+            <tr>
+                <td align="center">-</td>
+                <td align="right">대학교&nbsp;</td>
+                <td></td>
+                <td align="center">/</td>
+            </tr>
+            <tr>
+                <td align="center">-</td>
+                <td align="right">대학원&nbsp;</td>
+                <td></td>
+                <td align="center">/</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font:bold 2em "궁서";
+            text-align: center;
+            background-color: pink;
+        }
+        /* 1024 이상일 경우 */
+        @media all and (min-width:1024px) {
+            body {
+                background:url(../photo/k-05.png) no-repeat;
+            }
+            h1{
+                color: yellow;
+
+                background-color: green;
+            }
+        }
+        @media all and(min-width:700px) and (max-width:1023px) {
+            body {
+                background:url(../mycar/mycar13.png) no-repeat;
+                background-size: cover;
+            }
+            h1{
+                color: gray;
+
+                background-color: yellow;
+            }
+        }
+        @media all and (max-width:699px) {
+            body {
+                background:url(../mycar/mycar13.png) no-repeat center center;
+                background-size: 200px 200px;
+            }
+            h1{
+                color: ghostwhite;
+
+                background-color: gold;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>반응형 테스트</h1>
+</body>
+</html>

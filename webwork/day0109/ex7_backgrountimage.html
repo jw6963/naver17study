@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: solid 1px black;
+            margin: 10px;
+            float: left;
+        }
+        #one{
+            background: url(../mycar/mycar13.png);
+            background-size:100px 100px;
+            background-repeat: no-repeat;
+            background-position: right bottom;
+        }
+        #two{
+            background: url(../mycar/mycar7.png);
+            background-size: 200px 170px;
+        }
+        #three{
+            background: url(../mycar/mycar7.png) center center;
+            background-size: cover; /* 배경이미지가 클 경우 잘리더라도 주여진 영역을 완전히 덮을 수 있도록 맞춰준다*/
+        }
+        #four{
+            background: url(../mycar/mycar7.png) no-repeat center center;
+            background-size: contain; /* 빈 공간이 생기더라도 이미지 전체가 나오게 해준다. */
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+</body>
+</html>

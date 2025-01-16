@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gaegu&family=Jua&family=Nanum+Pen+Script&family=Playwrite+AU+SA:wght@100..400&family=Single+Day&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        body *{
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 30px;">
+        <h3><b>글꼴 모양을 선택하세요</b></h3>
+        <div class="input-group">
+            <label>
+                <input type="checkbox" class="form-check-input" 
+                id="chk1">&nbsp;굵게
+            </label>
+            &nbsp;&nbsp;
+            <label>
+                <input type="checkbox" class="form-check-input" 
+                id="chk2">&nbsp;기울게
+            </label>
+            &nbsp;&nbsp;
+            <label>
+                <input type="checkbox" class="form-check-input" 
+                id="chk3">&nbsp;밑줄
+            </label>
+            &nbsp;&nbsp;
+        </div>
+        <div class="input-group">
+            <label >
+                <input type="radio" class="form-check-input fcolor" 
+                value="red" name="font-color">&nbsp;빨강색
+            </label>
+            &nbsp;&nbsp;
+            <label >
+                <input type="radio" class="form-check-input fcolor" 
+                value="black" name="font-color" checked>&nbsp;검정색
+            </label>
+            &nbsp;&nbsp;
+            <label >
+                <input type="radio" class="form-check-input fcolor" 
+                value="blue" name="font-color">&nbsp;파랑색
+            </label>
+            &nbsp;&nbsp;
+            <label >
+                <input type="radio" class="form-check-input fcolor" 
+                value="pink" name="font-color">&nbsp;분홍색
+            </label>
+            &nbsp;&nbsp;
+            <label >
+                <input type="radio" class="form-check-input fcolor" 
+                value="orange" name="font-color">&nbsp;주황색
+            </label>
+            &nbsp;&nbsp;
+        </div>
+        <div class="input-group" style="margin-top: 30px;">
+            <h6>배경색 변경</h6>&nbsp;&nbsp;
+            <input type="color" value="#ccccff" id="bcolor">
+            <h6 style="margin-left: 20px;">글꼴 변경</h6> &nbsp;&nbsp;
+            <select class="selfont">
+                <option value="Jua">Jua</option>
+                <option value="Gaegu">Gaegu</option>
+                <option value="Nanum Pen Script" selected>Nanum Pen Script</option>
+                <option value="Playwrite AU SA">Playwrite AU SA</option>
+                <option value="Single Day">Single Day</option>
+            </select>
+        </div>
+        <div class="input-group" style="margin-top: 30px;">
+            <h6>글자크기 변경</h6>&nbsp;&nbsp;
+            <input type="range" id="fsize" min="10" max="50" step="2"
+            value="30" style="width: 250px;">
+            <h6 class="fnum" style="margin-left: 10px;">30</h6>
+        </div>
+        <button type="button" class="btn btn-outline-danger"
+        id="btnresult" style="margin: 20px 50px;">글꼴에 선택한 값 적용하기</button>
+        <div class="box" style="margin: 20px 20px; 
+        font-size: 30px; font-family: 'Nanum Pen Script';">
+            안녕하세요, Have a Nice Day!!
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    // 초기값으로 배경색 가져와서 적용시키기
+    $(".box").css("background-color",$("#bcolor").val());
+
+    $("#btnresult").click(function(){
+        // 굵게
+        let isBold = $("#chk1").is(":checked");
+        if (isBold) {
+            $(".box").css("font-weight","bold");
+        } else {
+            $(".box").css("font-weight","normal");
+        }
+        // 기울게
+        let isItalic = $("#chk2").is(":checked");
+        if (isItalic) {
+            $(".box").css("font-style","italic");
+        } else {
+            $(".box").css("font-style","normal");
+        }
+        // 밑줄
+        let isUnder = $("#chk3").is(":checked");
+        if (isUnder) {
+            $(".box").css("text-decoration","underline");
+        } else {
+            $(".box").css("text-decoration","none");
+        }
+        // 글자색 name 또는 클래스로만 해도 되긴 함
+        let fcolor = $(".fcolor[name=font-color]:checked").val();
+        $(".box").css("color",fcolor)
+        
+        // 배경색
+        $(".box").css("background-color",$("#bcolor").val());
+
+        // 글꼴
+        $(".box").css("font-family",$(".selfont").val());
+
+        // 글자 크기
+        $(".box").css("font-size",$("#fsize").val()+"px");
+
+    })
+
+    // range 이벤트
+    $("#fsize").change(function(){
+        $(".fnum").text($(this).val());
+    })
+</script>

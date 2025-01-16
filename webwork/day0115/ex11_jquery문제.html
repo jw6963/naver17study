@@ -33,6 +33,8 @@
     // largephoto의 위치를 left:100px,top:300px,border:10px solid gold
     // 로 위치 변경 (css 사용)
     $(".largephoto").css({
+        // 속성 값은 한 단어일 경우는 따옴표("") 생략 가능
+        //  -이 들어가는 속성은 반드시 따옴표로 감싸야 함함
         "position":"absolute",
         "left":"100px",
         "top":"300px",
@@ -46,15 +48,13 @@
     // .largephoto에 마우스를 올리면 해당 이미지 아래에
     // "안녕하세요!!" 라는 메세지를 추가하시오
     $(".largephoto").mouseover(function () {
-    // 메시지 생성 (중복 방지)
+        // 메시지 생성 (중복 방지)
         if (!$(".message").length) {
             $(this).after("<div class='message'>안녕하세요!!</div>");
             $(".message").css({
                 "position":"absolute",
                 "left": parseInt($(this).css("left"))+($(this).width()/2)-30+"px",
-                // "left":"210px",
                 "top": parseInt($(this).css("top"))+($(this).height()) +20 + "px",
-                // "top":"600px"
             });
         }
     }).mouseout(function () {

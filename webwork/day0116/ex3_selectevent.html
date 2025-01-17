@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gaegu&family=Jua&family=Nanum+Pen+Script&family=Playwrite+AU+SA:wght@100..400&family=Single+Day&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gaegu&family=Jua&family=Nanum+Pen+Script&family=Playwrite+AU+SA:wght@100..400&family=Single+Day&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <style>
-        body *{
+        body * {
             font-family: 'Jua';
         }
     </style>
 </head>
+
 <body>
     <div style="margin: 30px;">
-            <h4>음식 메뉴를 선택하세요</h4>
-            <div style="width: 300px;" class="input-group">
+        <h4>음식 메뉴를 선택하세요</h4>
+        <div style="width: 300px;" class="input-group">
             <select class="form-select selfood ">
                 <option selected hidden disabled>Select Menu</option>
                 <option value="떡볶이,11000">떡볶이</option>
@@ -31,31 +36,31 @@
                 <input type="checkbox" id="chkborder">&nbsp;테두리선
             </label>
         </div>
-        <img src="" style="margin: 30px 50px;" class="foodphoto"
-        onerror="this.src='../food/11.jpg'">
+        <img src="" style="margin: 30px 50px;" class="foodphoto" onerror="this.src='../food/11.jpg'">
         <h4 class="title">title</h4>
         <h5 class="price">price</h5>
     </div>
 </body>
+
 </html>
 
 <script>
-    $(".selfood").change(function(){
+    $(".selfood").change(function () {
         let v = $(this).val().split(",");
         let title = `메뉴명: ${v[0]}`;
         let price = `가격: ${v[1].replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원`;
         $("h4.title").text(title);
         $("h5.price").text(price);
-        $(".foodphoto").attr("src",`../food/${v[0]}.jpg`)
+        $(".foodphoto").attr("src", `../food/${v[0]}.jpg`)
     })
-    $("#chkborder").click(function(){
+    $("#chkborder").click(function () {
         // 체크 상태 알아보기
-        let chk=$(this).is(":checked");
+        let chk = $(this).is(":checked");
         // console.log(chk) // true|false
-        if(chk){
-            $("img.foodphoto").css("border","10px groove gray");
+        if (chk) {
+            $("img.foodphoto").css("border", "10px groove gray");
         } else {
-            $("img.foodphoto").css("border","none");
+            $("img.foodphoto").css("border", "none");
         }
     });
 </script>

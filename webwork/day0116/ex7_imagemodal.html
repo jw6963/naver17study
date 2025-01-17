@@ -23,25 +23,25 @@
     <div style="margin: 30px; width: 500px;">
         <h5 class="alert alert-danger">사진 클릭 시 모달 다이얼로그 띄우기</h5>
         <script>
-            let arr=[
-                ["에그마요샌드위치",11000],
-                ["꼬치구이",13000],
-                ["육개장칼국수",9000],
-                ["소고기카레",9900],
-                ["콘치즈",6000],
-                ["오므라이스",9800],
-                ["카레솥밥",14000],
-                ["햄치즈샌드위치",15000],
-                ["연근조림",4000],
-                ["햄마요덮밥",7000],
-                ["망고빙수",18000],
-                ["순두부라면",8000],
+            let arr = [
+                ["에그마요샌드위치", 11000],
+                ["꼬치구이", 13000],
+                ["육개장칼국수", 9000],
+                ["소고기카레", 9900],
+                ["콘치즈", 6000],
+                ["오므라이스", 9800],
+                ["카레솥밥", 14000],
+                ["햄치즈샌드위치", 15000],
+                ["연근조림", 4000],
+                ["햄마요덮밥", 7000],
+                ["망고빙수", 18000],
+                ["순두부라면", 8000],
             ];
             for (let i = 1; i <= 12; i++) {
                 let s = `
                     <div class="box">
                         <img src="../food/${i}.jpg" 
-                        fname=${arr[i-1][0]} price=${arr[i-1][1]}>
+                        fname=${arr[i - 1][0]} price=${arr[i - 1][1]}>
                     </div>
                 `;
                 document.write(s);
@@ -100,8 +100,9 @@
         let price = $(this).attr("price");
         let fname = $(this).attr("fname");
         $(this).attr({
-        "data-bs-toggle":"modal",
-        "data-bs-target":"#myModal"});
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#myModal"
+        });
         $("h4.modal-title").text(fname)
         $("div.modal-body").html(`
         <img src="${src}" width="100%"><br>

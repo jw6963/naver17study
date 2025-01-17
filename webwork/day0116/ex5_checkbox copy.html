@@ -1,62 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gaegu&family=Jua&family=Nanum+Pen+Script&family=Playwrite+AU+SA:wght@100..400&family=Single+Day&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gaegu&family=Jua&family=Nanum+Pen+Script&family=Playwrite+AU+SA:wght@100..400&family=Single+Day&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <style>
-        body *{
+        body * {
             font-family: 'Jua';
         }
     </style>
 </head>
+
 <body>
     <div style="margin: 30px;">
         <h3><b>글꼴 모양을 선택하세요</b></h3>
         <div class="input-group">
             <label>
-                <input type="checkbox" class="form-check-input" 
-                id="chk1">&nbsp;굵게
+                <input type="checkbox" class="form-check-input" id="chk1">&nbsp;굵게
             </label>
             &nbsp;&nbsp;
             <label>
-                <input type="checkbox" class="form-check-input" 
-                id="chk2">&nbsp;기울게
+                <input type="checkbox" class="form-check-input" id="chk2">&nbsp;기울게
             </label>
             &nbsp;&nbsp;
             <label>
-                <input type="checkbox" class="form-check-input" 
-                id="chk3">&nbsp;밑줄
+                <input type="checkbox" class="form-check-input" id="chk3">&nbsp;밑줄
             </label>
             &nbsp;&nbsp;
         </div>
         <div class="input-group">
-            <label >
-                <input type="radio" class="form-check-input fcolor" 
-                value="red" name="font-color">&nbsp;빨강색
+            <label>
+                <input type="radio" class="form-check-input fcolor" value="red" name="font-color">&nbsp;빨강색
             </label>
             &nbsp;&nbsp;
-            <label >
-                <input type="radio" class="form-check-input fcolor" 
-                value="black" name="font-color" checked>&nbsp;검정색
+            <label>
+                <input type="radio" class="form-check-input fcolor" value="black" name="font-color" checked>&nbsp;검정색
             </label>
             &nbsp;&nbsp;
-            <label >
-                <input type="radio" class="form-check-input fcolor" 
-                value="blue" name="font-color">&nbsp;파랑색
+            <label>
+                <input type="radio" class="form-check-input fcolor" value="blue" name="font-color">&nbsp;파랑색
             </label>
             &nbsp;&nbsp;
-            <label >
-                <input type="radio" class="form-check-input fcolor" 
-                value="pink" name="font-color">&nbsp;분홍색
+            <label>
+                <input type="radio" class="form-check-input fcolor" value="pink" name="font-color">&nbsp;분홍색
             </label>
             &nbsp;&nbsp;
-            <label >
-                <input type="radio" class="form-check-input fcolor" 
-                value="orange" name="font-color">&nbsp;주황색
+            <label>
+                <input type="radio" class="form-check-input fcolor" value="orange" name="font-color">&nbsp;주황색
             </label>
             &nbsp;&nbsp;
         </div>
@@ -74,8 +71,7 @@
         </div>
         <div class="input-group" style="margin-top: 30px;">
             <h6>글자크기 변경</h6>&nbsp;&nbsp;
-            <input type="range" id="fsize" min="10" max="50" step="2"
-            value="30" style="width: 250px;">
+            <input type="range" id="fsize" min="10" max="50" step="2" value="30" style="width: 250px;">
             <h6 class="fnum" style="margin-left: 10px;">30</h6>
         </div>
         <!-- <button type="button" class="btn btn-outline-danger"
@@ -86,54 +82,55 @@
         </div>
     </div>
 </body>
+
 </html>
 <script>
     // 초기값으로 배경색 가져와서 적용시키기
-    $(".box").css("background-color",$("#bcolor").val());
+    $(".box").css("background-color", $("#bcolor").val());
 
     // 굵기 이벤트
-    $("#chk1").click(function(){
+    $("#chk1").click(function () {
         if ($(this).is(":checked")) {
-            $(".box").css("font-weight","bold");
+            $(".box").css("font-weight", "bold");
         } else {
-            $(".box").css("font-weight","normal");
+            $(".box").css("font-weight", "normal");
         }
     });
     // 기울기 이벤트
-    $("#chk2").click(function(){
+    $("#chk2").click(function () {
         if ($(this).is(":checked")) {
-            $(".box").css("font-style","italic");
+            $(".box").css("font-style", "italic");
         } else {
-            $(".box").css("font-style","normal");
+            $(".box").css("font-style", "normal");
         }
     })
     // 밑줄 이벤트
-    $("#chk3").click(function(){
+    $("#chk3").click(function () {
         if ($(this).is(":checked")) {
-            $(".box").css("text-decoration","underline");
+            $(".box").css("text-decoration", "underline");
         } else {
-            $(".box").css("text-decoration","normal");
+            $(".box").css("text-decoration", "normal");
         }
     });
     // 글자색 이벤트
-    $(".fcolor").change(function(){
-        $(".box").css("color",$(this).val())
+    $(".fcolor").change(function () {
+        $(".box").css("color", $(this).val())
     });
     // 배경색 이벤트
-    $("#bcolor").change(function(){
-        $(".box").css("background-color",$(this).val());
+    $("#bcolor").change(function () {
+        $(".box").css("background-color", $(this).val());
     });
     // 글꼴
-    $(".selfont").change(function(){
-        $(".box").css("font-family",$(this).val());
+    $(".selfont").change(function () {
+        $(".box").css("font-family", $(this).val());
     });
     // 글자 크기 이벤트
     // $("#fsize").change(function(){
     //     $(".fnum").text($(this).val());
     //     $(".box").css("font-size",$(this).val()+"px");
     // });
-    $("#fsize").mousemove(function(){
+    $("#fsize").mousemove(function () {
         $(".fnum").text($(this).val());
-        $(".box").css("font-size",$(this).val()+"px");
+        $(".box").css("font-size", $(this).val() + "px");
     });
 </script>

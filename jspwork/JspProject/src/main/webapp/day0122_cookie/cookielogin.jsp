@@ -22,17 +22,14 @@ body * {
 }
 </style>
 </head>
-<%
-	// get 방식일 경우
-	String pageNum=request.getParameter("pagenum");
-	// tomcat 8버전부터 get 방식일 경우에도 한글 안 깨짐
-	// 이전 버전에는 한글 엔코딩을 해야 했음
-	String search=request.getParameter("search");
-%>
 <body>
-	<h5>
-		페이지 번호 <%=pageNum%><br>
-		검색단어: <%=search %>
-	</h5>
+	<form action="./loginaction.jsp" method="post">
+		<div class="input-group" style="width: 300px;">
+			<span>암호입력</span> <input type="password" name="amho"
+				class="form-control" required="required">
+			<button type="submit" class="btn btn-sm btn-danger">로그인</button>
+
+		</div>
+	</form>
 </body>
 </html>

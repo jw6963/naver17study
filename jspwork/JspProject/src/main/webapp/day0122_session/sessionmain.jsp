@@ -23,16 +23,15 @@ body * {
 </style>
 </head>
 <%
-	// get 방식일 경우
-	String pageNum=request.getParameter("pagenum");
-	// tomcat 8버전부터 get 방식일 경우에도 한글 안 깨짐
-	// 이전 버전에는 한글 엔코딩을 해야 했음
-	String search=request.getParameter("search");
+	// loginok 가 존재한다면 현재 로그인 중이고 null 이라면 로그인중이 아님
+	String loginok=(String)session.getAttribute("loginok");
 %>
 <body>
-	<h5>
-		페이지 번호 <%=pageNum%><br>
-		검색단어: <%=search %>
-	</h5>
+	<%
+	if(loginok==null){%>
+	<jsp:include page="./sessionlogin.jsp"></jsp:include>
+	<% } else {%>
+	<jsp:include page="./sessionlogout.jsp"></jsp:include>
+	<%	}%>
 </body>
 </html>

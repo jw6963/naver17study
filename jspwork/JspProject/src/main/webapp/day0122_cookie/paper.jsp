@@ -22,17 +22,11 @@ body * {
 }
 </style>
 </head>
-<%
-	// get 방식일 경우
-	String pageNum=request.getParameter("pagenum");
-	// tomcat 8버전부터 get 방식일 경우에도 한글 안 깨짐
-	// 이전 버전에는 한글 엔코딩을 해야 했음
-	String search=request.getParameter("search");
-%>
 <body>
-	<h5>
-		페이지 번호 <%=pageNum%><br>
-		검색단어: <%=search %>
-	</h5>
+	<ul>
+		<li><a href="gisa1.jsp">오세훈 "떨어지는 민주당 지지율…국민들 거대 야당 문제 제대로 알아"</a></li>
+		<li><a href="gisa2.jsp">공수처, 윤 대통령 3차 강제구인 시도</a></li>
+		<li><a href="gisa3.jsp">최상목 권한대행 3개 법안에 또 거부권</a></li>
+	</ul>
 </body>
 </html>

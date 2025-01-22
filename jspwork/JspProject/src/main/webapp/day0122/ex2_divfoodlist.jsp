@@ -49,22 +49,23 @@ div.box>figure>figcation {
 </style>
 </head>
 <%
-	FoodDataList dataList = new FoodDataList();
-	List<FoodDto> list = dataList.getAllDatas();
+FoodDataList dataList = new FoodDataList();
+List<FoodDto> list = dataList.getAllDatas();
 %>
 <body>
-<%
-	for(FoodDto dto:list){
-%>
+	<%
+	for (FoodDto dto : list) {
+	%>
 	<div class="box">
-	<figure>
-	<img src="../image/food/"<%=dto.getFoodPhoto() %>>
-	<figcaption>
-	<b><%=dto.getFoodName() %></b><br>
-	<%=dto.getFoodPrice() %>원
-	</figcaption>
-	</figure>
+		<figure>
+			<img src="../image/food/<%=dto.getFoodPhoto()%>">
+			<figcaption>
+				<b><%=dto.getFoodName()%></b><br>
+			</figcaption>
+		</figure>
 	</div>
-	<%} %>
+	<%
+	}
+	%>
 </body>
 </html>

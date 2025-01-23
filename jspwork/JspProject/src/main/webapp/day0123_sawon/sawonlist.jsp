@@ -39,6 +39,14 @@
    	   		// 목록 파일로 이동-검색단어는 get 방식으로 전달
    			location.href="./sawonlist.jsp?search="+search;
    		})
+   		
+   		// 검색 단어를 입력 후 엔터를 누르면 검색하기
+   		$("#search").keyup(function(e){
+   			if(e.keyCode==13) {
+   				// 검색 버튼 클릭 이벤트 강제 호출
+   				$("#btnsearch").trigger("click");
+   			}
+   		})
    	})
    	
    </script>
@@ -66,7 +74,7 @@
 			<td colspan="4" >
 				<div class="input-group">
 					&nbsp;&nbsp;
-					<div style="border:1px groove gray;align-content: center; padding:5px;">
+					<div style="border:1px groove lightgray;align-content: center; padding:5px;">
 						<b>이름 검색</b>&nbsp;&nbsp;
 						<i class="bi bi-search"></i>
 					</div>&nbsp;&nbsp;

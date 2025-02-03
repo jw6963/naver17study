@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<guest name="에코">
+		<avata>../image/photo2/3.jpg</avata>
+		<message>시간이 얼마나 있는 지는 중요하지 않아</message>
+		<birthday>2001-12-20</birthday>
+	</guest>
+	<guest name="다리우스">
+		<avata>../image/photo2/30.jpg</avata>
+		<message>도망쳐라</message>
+		<birthday>2010-1-14</birthday>
+	</guest>
+	<guest name="야스오">
+		<avata>../image/photo2/5.jpg</avata>
+		<message>죽음은 늘 바람과 같지</message>
+		<birthday>2012-3-28</birthday>
+	</guest>
+	<guest name="나르">
+		<avata>../image/photo2/15.jpg</avata>
+		<message>슈슈파나</message>
+		<birthday>1925-5-31</birthday>
+	</guest>
+</data>

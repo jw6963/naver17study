@@ -17,7 +17,7 @@ public class MemoDao {
 		PreparedStatement pstmt=null;
 		String sql ="insert into ajaxmemo (nickname,avata,message,writeday) values(?,?,?,now())";
 		
-		conn=db.getConnection();
+		conn=db.getNaverConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getNickName());
@@ -37,7 +37,7 @@ public class MemoDao {
 		PreparedStatement pstmt=null;
 		String sql ="delete from ajaxmemo where idx=?";
 		
-		conn=db.getConnection();
+		conn=db.getNaverConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
@@ -53,9 +53,9 @@ public class MemoDao {
 	public void updateMemo(MemoDto dto) {
 		Connection conn=null;
 		PreparedStatement pstmt=null;
-		String sql ="update ajaxmemo nickname=?,avata=?,message=? where idx=?";
+		String sql ="update ajaxmemo set nickname=?,avata=?,message=? where idx=?";
 		
-		conn=db.getConnection();
+		conn=db.getNaverConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getNickName());
@@ -77,9 +77,9 @@ public class MemoDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs = null;
 		
-		String sql = "select * from ajaxmemo order by idx";
+		String sql = "select * from ajaxmemo order by idx desc";
 		
-		conn=db.getConnection();
+		conn=db.getNaverConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
@@ -106,9 +106,9 @@ public class MemoDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs = null;
 		
-		String sql = "select * from ajaxmemo where nickname like ? order by idx";
+		String sql = "select * from ajaxmemo where nickname like ? order by idx desc";
 		
-		conn=db.getConnection();
+		conn=db.getNaverConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, "%"+nickname+"%");
@@ -140,7 +140,7 @@ public class MemoDao {
 		
 		String sql = "select * from ajaxmemo where idx=?";
 		
-		conn=db.getConnection();
+		conn=db.getNaverConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);

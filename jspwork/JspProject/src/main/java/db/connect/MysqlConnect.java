@@ -12,6 +12,11 @@ public class MysqlConnect {
 	String username="root";
 	String pw="0000";
 	
+	// camp134
+	String url2="jdbc:mysql://db-324ocg-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul";
+	String username2="study";
+	String pw2="bitcamp!@#123";
+	
 	public MysqlConnect() {
 		try {
 			Class.forName(MYSQL_DRIVER);
@@ -28,6 +33,18 @@ public class MysqlConnect {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Mysql 연결 실패: "+e.getMessage());
+		}
+		
+		return conn;
+	}
+	
+	public Connection getNaverConnection() {
+		Connection conn =null;
+		try {
+			conn = DriverManager.getConnection(url2,username2,pw2);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("ncp Mysql 연결 실패: "+e.getMessage());
 		}
 		
 		return conn;

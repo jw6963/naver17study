@@ -1,0 +1,139 @@
+@charset "UTF-8";
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.burger-menu {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.profile {
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    color: black;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    width: 120px;
+}
+
+.profile-menu.show {
+    display: block;
+}
+
+/* GNB 메뉴 스타일 */
+#gnb {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #444;
+    color: white;
+    transition: left 0.3s;
+    padding-top: 50px;
+}
+
+#gnb.active {
+    left: 0;
+}
+
+#gnb ul {
+    list-style: none;
+    padding: 0;
+}
+
+#gnb li {
+    padding: 15px;
+    border-bottom: 1px solid #555;
+}
+
+#gnb a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 검색 바 스타일 */
+.search-bar {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-bar input {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* 게시글 리스트 */
+.post-list {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.post {
+    background: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* 광고 배너 */
+.ad-banner {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ad-banner img {
+    max-width: 100%;
+    height: auto;
+}
+.dropdown-menu {
+    padding: 5px;
+    text-align: center;
+    left: -80px;
+    width: 100%; /* 부모 요소에 맞게 꽉 차게 */
+    display: flex;
+    flex-direction: column; /* 세로로 정렬 */
+}
+
+.dropdown-menu span {
+    width: 100%;
+    margin-top:10px;
+    padding-bottom:10px;
+    text-align: center;
+    border-bottom: 2px dotted gray; /* 구분선 추가 */
+}
+
+.dropdown-menu span:last-child {
+    border-bottom: none; /* 마지막 항목은 구분선 제거 */
+}

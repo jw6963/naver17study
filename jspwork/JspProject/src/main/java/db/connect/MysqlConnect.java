@@ -17,6 +17,10 @@ public class MysqlConnect {
 	String username2="study";
 	String pw2="bitcamp!@#123";
 	
+	String url3="jdbc:mysql://localhost:3306/personalproject?serverTimezone=Asia/Seoul";
+	String username3="root";
+	String pw3="0000";
+	
 	public MysqlConnect() {
 		try {
 			Class.forName(MYSQL_DRIVER);
@@ -45,6 +49,18 @@ public class MysqlConnect {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("ncp Mysql 연결 실패: "+e.getMessage());
+		}
+		
+		return conn;
+	}
+	
+	public Connection getPpConnection() {
+		Connection conn =null;
+		try {
+			conn = DriverManager.getConnection(url3,username3,pw3);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Mysql 연결 실패: "+e.getMessage());
 		}
 		
 		return conn;

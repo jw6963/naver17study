@@ -176,8 +176,8 @@
 .dt-cont{
 	min-height: 300px;
 	background-color: #fff;
-	border-radius: 20px;
-	padding: 10px;
+	border-radius: 5px;
+	padding: 15px;
 	border: 1px solid #ccc;
 }
 .dt-titleddddd {

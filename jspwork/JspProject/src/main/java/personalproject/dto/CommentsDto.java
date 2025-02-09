@@ -5,11 +5,25 @@ import java.sql.Timestamp;
 public class CommentsDto {
 	private long cmtId;
 	private int postId;
+	private String content;
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	private String writer;
 	private int likeCnt;
 	private int dislikeCnt;
 	private Timestamp createdAt;
+	private boolean isDeleted;
 	
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 	public long getCmtId() {
 		return cmtId;
 	}

@@ -62,7 +62,7 @@ input {
 button {
 	width: 45%;
 	padding: 10px;
-	background-color: #4CAF50;
+	background-color: #444444;
 	color: white;
 	border: none;
 	border-radius: 4px;
@@ -175,7 +175,7 @@ button:hover {
 				let r = res.replace(/(\s*)/g, "");
 				if (r === "true") {
 					// 로그인 성공 시
-					window.location.href = '../main/mainPage.html'; // 메인 페이지로 이동
+					window.location.href = '../main/mainPage.jsp'; // 메인 페이지로 이동
 				} else {
 					// 로그인 실패 시
 					$('#errorMessage').show(); // 에러 메시지 표시

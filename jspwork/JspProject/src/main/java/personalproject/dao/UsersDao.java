@@ -17,7 +17,7 @@ public class UsersDao {
 	    ResultSet rs = null;
 	    
 	    String sql = "SELECT * FROM users WHERE userId = ? AND passwd = ?";
-	    conn=db.getPpConnection();
+	    conn=db.getNaverConnection();
 	    pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, userId);
         pstmt.setString(2, passwd);
@@ -42,7 +42,7 @@ public class UsersDao {
 		ResultSet rs = null;
 		String sql = "SELECT userId,role,suspension from users WHERE userId = ?";
 		
-	    conn=db.getPpConnection();
+	    conn=db.getNaverConnection();
 	    try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
@@ -69,7 +69,7 @@ public class UsersDao {
 		PreparedStatement pstmt=null;
 		String sql ="insert into users (userId,passwd,role, createdAt) values(?,?,'user',now())";
 		
-		conn=db.getPpConnection();
+		conn=db.getNaverConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, userId);

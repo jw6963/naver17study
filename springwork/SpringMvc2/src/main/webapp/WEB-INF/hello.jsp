@@ -30,38 +30,60 @@
 <h4>오늘의 메세지 : ${message}</h4>
 <h5>오늘은 <fmt:formatDate value="${today}" pattern="yyyy-MM-dd"/>입니다</h5>
 <hr>
-<h5>매핑주소 연습</h5>
-<h6>
-    <a href="./bit/shop/addform">./bit/shop/addform으로 이동</a>
-</h6>
-<h6>
-    <a href="./bit/shop/updateform">./bit/shop/updateform으로 이동</a>
-</h6>
-<h6>
-    <a href="./bitcamp/shop/list">./bitcamp/shop/list 로 이동</a>
-</h6>
-<h6>
-    <a href="./bitcamp/shop/cart">./bitcamp/shop/cart 로 이동</a>
-</h6>
-<h6>
-    <a href="./bitcamp/board/list">./bitcamp/board/list 로 이동</a>
-</h6>
-<hr>
-<h6>
-    <a href="./prop1">application.properties에서 addr,hp읽기</a>
-</h6>
-<h6>
-    <a href="./prop2">navercloud.yml 에서 db정보 읽기</a>
-</h6>
-<hr>
-<h6>
-    <a href="./form1">Get방식으로 각각 폼데이타 읽기</a>
-</h6>
-<h6>
-    <a href="./form2">Post방식-dto로 폼데이타 읽기</a>
-</h6>
-<h6>
-    <a href="./form3">Post방식-map으로 폼데이타 읽기</a>
-</h6>
+<div class="container">
+    <h5>매핑주소 연습</h5>
+    <h6>
+        <a href="./bit/shop/addform">./bit/shop/addform으로 이동</a>
+    </h6>
+    <h6>
+        <a href="./bit/shop/updateform">./bit/shop/updateform으로 이동</a>
+    </h6>
+    <h6>
+        <a href="./bitcamp/shop/list">./bitcamp/shop/list 로 이동</a>
+    </h6>
+    <h6>
+        <a href="./bitcamp/shop/cart">./bitcamp/shop/cart 로 이동</a>
+    </h6>
+    <h6>
+        <a href="./bitcamp/board/list">./bitcamp/board/list 로 이동</a>
+    </h6>
+    <hr>
+    <h6>
+        <a href="./prop1">application.properties에서 addr,hp읽기</a>
+    </h6>
+    <h6>
+        <a href="./prop2">navercloud.yml 에서 db정보 읽기</a>
+    </h6>
+    <hr>
+    <h6>
+        <a href="./form1">Get방식으로 각각 폼데이타 읽기</a>
+    </h6>
+    <h6>
+        <a href="./form2">Post방식-dto로 폼데이타 읽기</a>
+    </h6>
+    <h6>
+        <a href="./form3">Post방식-map으로 폼데이타 읽기</a>
+    </h6>
+    <hr>
+    <h6>
+        <a href="./uploadform">사진 업로드 폼</a>
+    </h6>
+    <h6>
+        <a href="./multiform">동시에 여러 개의 사진 업로드 폼</a>
+    </h6>
+    <h6>
+        <a href="./ajaxupload">Ajax로 사진 업로드</a>
+    </h6>
+    <h6>
+        <a href="./multiajaxupload">Ajax로 여러 개의 사진 업로드</a>
+    </h6>
+    <h6>
+        <a href="./munjaeupload1">문제 1번 : Ajax로 제목과 사진 업로드</a>
+    </h6>
+    <h6>
+        <a href="./munjaeupload2">문제 2번 : 폼 단위 전송 - 사진 추가 삭제 기능</a>
+    </h6>
+</div>
+
 </body>
 </html>

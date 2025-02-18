@@ -1,0 +1,71 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: jw
+  Date: 2025-02-18
+  Time: 오후 3:59
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>502 jsp study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gaegu&family=Jua&family=Nanum+Pen+Script&family=Playwrite+AU+SA:wght@100..400&family=Single+Day&display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+        .plus, .minus{
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .plus:hover, .minus:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+<h3 class="alert alert-danger">여러 개의 사진 업로드 하기</h3>
+<div class="container">
+    <form action="./multiprocess" method="post" enctype="multipart/form-data">
+        제목 : <input type="text" name="title"> <br>
+        <div style="width: 20%; display: flex; justify-content: space-between;">
+            <div>
+                <i class="bi bi-plus-square plus"></i>
+                <i class="bi bi-dash-square minus"></i>
+            </div>
+            <button type="submit">전송</button>
+        </div>
+        <div class="input-files">
+            사진 : <br><input type="file" name="upload" multiple style="margin-bottom: 5px;"><br>
+        </div>
+
+        <br>
+
+
+    </form>
+</div>
+
+</body>
+</html>
+<script>
+    // +/-버튼으로 input 태그 추가
+    let s = `<input type="file" name="upload" multiple style="margin-bottom: 5px;"><br>`;
+    $(".plus").click(function (){
+        $(".input-files").append(s);
+    })
+    $(".minus").click(function (){
+        if ($(".input-files input[type='file']").length > 1) {
+            $(".input-files input[type='file']").last().next("br").remove(); // 마지막 <br> 제거
+            $(".input-files input[type='file']").last().remove(); // 마지막 input 제거
+        }
+    })
+</script>

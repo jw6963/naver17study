@@ -31,4 +31,7 @@
     <delete id="deleteSangpum" parameterType="int">
         delete from bootshop where num=#{num}
     </delete>
+    <update id="updatePhoto" parameterType="Map">
+        update bootshop set sphoto=#{photo} where num=#{num}
+    </update>
 </mapper>

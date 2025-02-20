@@ -4,6 +4,7 @@ import data.dto.ShopDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ShopMapper {
@@ -19,4 +20,6 @@ public interface ShopMapper {
     public void updateSangpum(ShopDto dto);
     // 특정 삭제
     public void deleteSangpum(int num);
+    // 사진 수정
+    public void updatePhoto(Map<String, Object> map);
 }

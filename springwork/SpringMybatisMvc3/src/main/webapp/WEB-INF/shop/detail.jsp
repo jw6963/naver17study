@@ -19,6 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body * {
             font-family: 'Jua';
@@ -87,30 +88,36 @@
             font-size: 1.5em;
             cursor: pointer;
         }
+
         #message {
             min-width: 100px;
         }
+
         .repleform {
             width: 60%;
             margin-bottom: 20px;
             min-width: 400px;
         }
+
         .replelist {
             width: 60%;
             white-space: nowrap;
             border-top: 1px solid lightgray;
             min-width: 400px;
         }
+
         .rpl-con {
             margin: 20px;
             display: flex;
             align-items: center;
         }
+
         .rpl-photo {
             width: 40px;
             height: 40px;
             margin-right: 10px;
         }
+
         .rpl-msg {
             width: 430px;
             overflow: hidden;
@@ -119,19 +126,25 @@
             margin-right: 10px;
             min-width: 50px;
         }
+
         .rpl-date {
             margin-right: 10px;
             font-size: 13px;
             color: gray;
         }
-        .rpl-like{
+
+        .rpl-like {
             margin-right: 10px;
             color: cornflowerblue;
             cursor: pointer;
         }
-        .rpl-del{
+
+        .rpl-del {
             margin-right: 10px;
             color: indianred;
+            cursor: pointer;
+        }
+        .rpl-photo {
             cursor: pointer;
         }
     </style>
@@ -179,6 +192,33 @@
         <button type="button" class="btn btn-sm btn-outline-secondary btn1" id="btnPhoEdit">사진 수정</button>
     </div>
     <div style="margin-bottom: 30px;"></div>
+</div>
+<%--Modal part--%>
+<%--huge image modal--%>
+<div class="modal" id="hui-Modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">큰 이미지에용</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <img src="" style="margin: auto" width="90%" class="hui-img" onerror="this.src='../save/noimage.png'">
+                <hr>
+                <h6 class="hui-msg"></h6>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
 </div>
 </body>
 </html>
@@ -247,11 +287,11 @@
         $(document).on("click", ".rpl-like", function () {
             let idx = $(this).closest(".rpl-con").data("idx");
             $.ajax({
-                type:"get",
-                dataType:"text",
-                data:{"idx":idx},
-                url:"./repleLike",
-                success:function (){
+                type: "get",
+                dataType: "text",
+                data: {"idx": idx},
+                url: "./repleLike",
+                success: function () {
                     location.reload();
                 }
             })
@@ -259,18 +299,30 @@
 
         $(document).on("click", ".rpl-del", function () {
             let idx = $(this).closest(".rpl-con").data("idx");
-            if(confirm("삭제하시겠습니까?")){
+            let pname = $(this).closest(".rpl-con").find(".rpl-photo").attr("pname");
+            if (confirm("삭제하시겠습니까?")) {
                 $.ajax({
-                    type:"get",
-                    dataType:"text",
-                    data:{"idx":idx},
-                    url:"./repleDelete",
-                    success:function (){
+                    type: "get",
+                    dataType: "text",
+                    data: {"idx": idx, "pname": pname},
+                    url: "./repleDelete",
+                    success: function () {
                         location.reload();
                     }
                 })
             }
         });
+        $(document).on("click", ".rpl-photo", function () {
+            let rc = $(this).closest(".rpl-con")
+            let ph = rc.find(".rpl-photo")
+            let msg = rc.find(".rpl-msg")
+            // ph.attr({
+            //     "data-bs-toggle": "modal",
+            //     "data-bs-target": "#hui-Modal"
+            // })
+            $(".hui-img").attr("src",ph.attr("src"))
+            $(".hui-msg").text(msg.text())
+        })
     });
 
     function replelist() {
@@ -281,10 +333,11 @@
             url: "./repleList",
             success: function (res) {
                 let s = "";
-                $.each(res,(idx,ele)=>{
+                $.each(res, (idx, ele) => {
                     s += `
                     <div class="rpl-con" data-idx="\${ele.idx}">
-                        <img src="../save/\${ele.photo}" pname="\${ele.photo}" class="rpl-photo">
+                        <img src="../save/\${ele.photo}" pname="\${ele.photo}" class="rpl-photo"
+            data-bs-toggle="modal" data-bs-target="#hui-Modal">
                         <span class="rpl-msg">\${ele.message}</span>
                         <span class="rpl-date">\${ele.writetime}</span>
                         <i class="bi bi-hand-thumbs-up-fill rpl-like">추천&nbsp;&nbsp;\${ele.likes}</i>

@@ -63,7 +63,16 @@ public class ShopRepleController {
     }
 
     @GetMapping("/shop/repleDelete")
-    public void repleDelete(@RequestParam int idx){
+    public void repleDelete(
+            @RequestParam int idx,
+            @RequestParam String pname,
+            HttpServletRequest request
+    ){
+        String uploadPath = request.getSession().getServletContext().getRealPath("/save");
+        File file = new File(uploadPath+"/"+pname);
+        if (file.exists()){
+            file.delete();
+        }
         shopRepleService.deleteShopReple(idx);
     }
 }

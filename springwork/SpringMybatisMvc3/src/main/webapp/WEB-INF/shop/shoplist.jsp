@@ -60,7 +60,7 @@
     <c:forEach var="dto" items="${list}">
         <figure>
             <a href="./detail?num=${dto.num}">
-            <img src="../save/${dto.mainphoto}" alt="err">
+            <img src="../save/${dto.mainphoto}" alt="No Image">
             </a>
             <figcation>
                 <h6>${dto.sangpum}</h6>

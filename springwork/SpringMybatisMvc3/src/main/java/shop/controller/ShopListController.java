@@ -1,6 +1,8 @@
 package shop.controller;
 
 import data.dto.ShopDto;
+import data.dto.ShopRepleDto;
+import data.service.ShopRepleService;
 import data.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,8 @@ import java.util.List;
 public class ShopListController {
     @Autowired
     ShopService shopService;
+    @Autowired
+    private ShopRepleService shopRepleService;
 
     @GetMapping("/shop/list")
     public String shopList(Model model) {
@@ -24,6 +28,10 @@ public class ShopListController {
         for(ShopDto shopDto : list) {
             String mainPhoto= shopDto.getSphoto().split(",")[0]; // 첫번 째 사진
             shopDto.setMainphoto(mainPhoto);
+
+            // 댓글 수 저장
+            List<ShopRepleDto> replecnt = shopRepleService.getReplesByNum(shopDto.getNum());
+            shopDto.setReplecnt(replecnt.size());
         }
         model.addAttribute("totalCount", totalCount);
         model.addAttribute("list", list);

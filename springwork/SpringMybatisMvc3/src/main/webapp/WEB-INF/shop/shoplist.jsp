@@ -49,6 +49,7 @@
     </style>
 </head>
 <body>
+<jsp:include page="../../layout/title.jsp"/>
 <div style="margin: 20px; width: 500px;">
     <h5 class="alert alert-danger">총 ${totalCount} 개의 상품이 있습니다.
         <button type="button" class="btn btn-success btn-sm" style="float: right;"
@@ -58,17 +59,22 @@
 </div>
 <div class="shopbox" style="margin: 20px;">
     <c:forEach var="dto" items="${list}">
-        <figure>
-            <a href="./detail?num=${dto.num}">
-            <img src="../save/${dto.mainphoto}" alt="No Image" onerror="this.src='../save/noimage.png'">
-            </a>
-            <figcation>
-                <h6>${dto.sangpum}</h6>
-                <h6>
-                    <fmt:formatNumber value="${dto.sprice}" type="number"/>원
-                </h6>
-            </figcation>
-        </figure>
+        <a href="./detail?num=${dto.num}" style="color: black;">
+            <figure>
+                <img src="../save/${dto.mainphoto}" alt="No Image" onerror="this.src='../save/noimage.png'">
+                <figcation>
+                    <h6>
+                        <c:if test="${dto.replecnt !=0}">
+                            <span class="badge bg-info">${dto.replecnt}</span>
+                        </c:if>
+                        &nbsp;${dto.sangpum}
+                    </h6>
+                    <h6>
+                        <fmt:formatNumber value="${dto.sprice}" type="number"/>원
+                    </h6>
+                </figcation>
+            </figure>
+        </a>
     </c:forEach>
 
 </div>

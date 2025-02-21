@@ -65,6 +65,9 @@
             left: 150px;
             top: -30px;
         }
+        .btn-group {
+            margin-top: 10px;
+        }
 
         .container {
             margin-top: 40px;
@@ -150,6 +153,7 @@
     </style>
 </head>
 <body>
+<jsp:include page="../../layout/title.jsp"/>
 <%--<div style="margin: 30px;">--%>
 <div class="container" style="white-space: nowrap;">
     <div style="display: flex; margin:auto;">
@@ -181,6 +185,7 @@
         <i class="bi bi-camera-fill addphoto" style="margin: 0 10px 0 10px;"></i>
         <button type="button" class="btn btn-sm btn-info" id="btnaddrpl">등록</button>
     </div>
+    <h5 style="color: darkslategray">댓글 : <span class="badge bg-success">${dto.replecnt}</span></h5>
     <div class="replelist">
 
     </div>
@@ -201,7 +206,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">큰 이미지에용</h4>
+                <h4 class="modal-title">상세 보기</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 

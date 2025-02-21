@@ -1,14 +1,13 @@
 package data.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
 import java.sql.Timestamp;
 
 @Data
-@Alias("MemeberDto")
-public class MmberDto {
+@Alias("MemberDto")
+public class MemberDto {
     private int num;
     private String mname;
     private String mpass;

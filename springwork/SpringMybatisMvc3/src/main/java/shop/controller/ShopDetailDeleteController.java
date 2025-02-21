@@ -1,6 +1,8 @@
 package shop.controller;
 
 import data.dto.ShopDto;
+import data.dto.ShopRepleDto;
+import data.service.ShopRepleService;
 import data.service.ShopService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ import java.util.UUID;
 public class ShopDetailDeleteController {
     @Autowired
     private ShopService shopService;
+    @Autowired
+    ShopRepleService shopRepleService;
 
     @GetMapping("/shop/detail")
     public String detail(@RequestParam("num") int num, Model model) {
@@ -25,6 +29,9 @@ public class ShopDetailDeleteController {
         List<String> photoList = List.of(dto.getSphoto().split(","));
         String mainPhoto = dto.getSphoto().split(",")[0]; // 첫 번째 사진
         dto.setMainphoto(mainPhoto);
+        // 댓글 수 저장
+        List<ShopRepleDto> replecnt = shopRepleService.getReplesByNum(dto.getNum());
+        dto.setReplecnt(replecnt.size());
         model.addAttribute("dto", dto);
         model.addAttribute("photoList", photoList);
         return "shop/detail";

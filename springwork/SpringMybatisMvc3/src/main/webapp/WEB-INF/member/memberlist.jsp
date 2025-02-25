@@ -49,8 +49,8 @@
             float: left;
         }
         .sm-profile {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             float: left;
         }
     </style>
@@ -74,7 +74,11 @@
             <tr>
                 <td>
                     <input type="checkbox" class="mname-chkbox">
-                    <img src="../save/${dto.mphoto}" onerror="this.src='../save/noimage.png'" class="sm-profile">
+<%--                    <img src="../save/${dto.mphoto}" onerror="this.src='../save/noimage.png'" class="sm-profile">--%>
+                    <%--    원본 사진을 사이즈만 바꿔서 출력   --%>
+<%--                    <img src="${naverurl}/member/${dto.mphoto}" onerror="this.src='../save/noimage.png'" class="sm-profile">--%>
+                        <%--   원본 사진에서 30x30으로 자른 썸네일 출력   --%>
+                    <img src="${fronturl}/member/${dto.mphoto}${backurl}" onerror="this.src='../save/noimage.png'" class="sm-profile">
                     <span>${dto.mname}</span>
                 </td>
                 <td>
@@ -101,6 +105,11 @@
 </body>
 </html>
 <script>
+    $(function (){
+        if (${sessionScope.loginid!='admin'}) {
+            location.href='/';
+        }
+    })
     $(".mbtndel").click(function (){
         if(confirm("삭제하시겠습니까?")) {
             $.ajax({
@@ -109,7 +118,6 @@
                 url: "./delete",
                 data: {"num": $(this).attr("num")},
                 success: function (res) {
-                    console.log("응답: " + res)
                     location.reload();
                 }
             })

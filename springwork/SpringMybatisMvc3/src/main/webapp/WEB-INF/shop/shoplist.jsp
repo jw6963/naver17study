@@ -61,7 +61,9 @@
     <c:forEach var="dto" items="${list}">
         <a href="./detail?num=${dto.num}" style="color: black;">
             <figure>
-                <img src="../save/${dto.mainphoto}" alt="No Image" onerror="this.src='../save/noimage.png'">
+                    <%--                <img src="../save/${dto.mainphoto}" alt="No Image" onerror="this.src='../save/noimage.png'">--%>
+                    <%--                ncp storage image--%>
+                <img src="${fronturl}/shop/${dto.mainphoto}${backurl}" alt="No Image" onerror="this.src='../save/noimage.png'">
                 <figcation>
                     <h6>
                         <c:if test="${dto.replecnt !=0}">

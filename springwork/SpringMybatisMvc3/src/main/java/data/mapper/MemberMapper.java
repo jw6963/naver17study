@@ -12,4 +12,8 @@ public interface MemberMapper {
     public List<MemberDto> getAllDatas();
     public void deleteMember(int num);
     public MemberDto getOneByNum(int num);
+    public int loginChk(String loginid, String loginpass);
+    public MemberDto getOneById(String myid);
+    public void changePhoto(int num, String mphoto);
+    public void updateMember(MemberDto dto);
 }

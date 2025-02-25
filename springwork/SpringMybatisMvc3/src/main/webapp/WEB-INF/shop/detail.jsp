@@ -30,6 +30,8 @@
             height: 500px;
             overflow-y: auto;
             min-width: 100px;
+            display: flex;
+            flex-direction: column;
         }
 
         div .p-list img {
@@ -159,11 +161,11 @@
     <div style="display: flex; margin:auto;">
         <div class="p-list">
             <c:forEach var="photo" items="${photoList}">
-                <img src="../save/${photo}" class="photo" onerror="this.src='../save/noimage.png'">
+                <img src="${naverurl}/shop/${photo}" class="photo" onerror="this.src='../save/noimage.png'">
             </c:forEach>
         </div>
         <div class="m-photo">
-            <img src="../save/${dto.mainphoto}" onerror="this.src='../save/noimage.png'">
+            <img src="${naverurl}/shop/${dto.mainphoto}" onerror="this.src='../save/noimage.png'">
         </div>
     </div>
     <div class="description">
@@ -341,7 +343,7 @@
                 $.each(res, (idx, ele) => {
                     s += `
                     <div class="rpl-con" data-idx="\${ele.idx}">
-                        <img src="../save/\${ele.photo}" pname="\${ele.photo}" class="rpl-photo"
+                        <img src="${naverurl}/shop/\${ele.photo}" pname="\${ele.photo}" class="rpl-photo"
             data-bs-toggle="modal" data-bs-target="#hui-Modal">
                         <span class="rpl-msg">\${ele.message}</span>
                         <span class="rpl-date">\${ele.writetime}</span>

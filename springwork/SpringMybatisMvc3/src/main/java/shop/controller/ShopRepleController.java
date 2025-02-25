@@ -3,6 +3,7 @@ package shop.controller;
 import data.dto.ShopRepleDto;
 import data.service.ShopRepleService;
 import jakarta.servlet.http.HttpServletRequest;
+import naver.storage.NcpObjectStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,12 @@ public class ShopRepleController {
     @Autowired
     private ShopRepleService shopRepleService;
 
+    // 버킷 이름
+    private String bucketName = "bitcamp-bucket";
+
+    @Autowired
+    NcpObjectStorageService storageService;
+
     @PostMapping("/shop/addreple")
     public void insertReple(
         HttpServletRequest request,
@@ -30,17 +37,18 @@ public class ShopRepleController {
         @RequestParam String message,
         @RequestParam("upload") MultipartFile upload
     ){
-        // save의 실제 경로 구하기
-        String uploadPath = request.getSession().getServletContext().getRealPath("/save");
-        // 업로드할 파일명(랜덤 문자열.확장자)
-        String fileName = UUID.randomUUID()+"."+upload.getOriginalFilename().split("\\.")[1];
-        // 사진 업로드
-        File uploadFile = new File(uploadPath+"/"+fileName);
-        try {
-            upload.transferTo(uploadFile);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        // save의 실제 경로 구하기
+//        String uploadPath = request.getSession().getServletContext().getRealPath("/save");
+//        // 업로드할 파일명(랜덤 문자열.확장자)
+//        String fileName = UUID.randomUUID()+"."+upload.getOriginalFilename().split("\\.")[1];
+//        // 사진 업로드
+//        File uploadFile = new File(uploadPath+"/"+fileName);
+//        try {
+//            upload.transferTo(uploadFile);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+        String fileName = storageService.uploadFile(bucketName, "shop",upload);
         // dto 생성
         ShopRepleDto dto = new ShopRepleDto();
         dto.setMessage(message);
@@ -68,11 +76,13 @@ public class ShopRepleController {
             @RequestParam String pname,
             HttpServletRequest request
     ){
-        String uploadPath = request.getSession().getServletContext().getRealPath("/save");
-        File file = new File(uploadPath+"/"+pname);
-        if (file.exists()){
-            file.delete();
-        }
+//        String uploadPath = request.getSession().getServletContext().getRealPath("/save");
+//        File file = new File(uploadPath+"/"+pname);
+//        if (file.exists()){
+//            file.delete();
+//        }
+        // ncp storage 파일 삭제
+        storageService.deleteFile(bucketName,"shop",pname);
         shopRepleService.deleteShopReple(idx);
     }
 }

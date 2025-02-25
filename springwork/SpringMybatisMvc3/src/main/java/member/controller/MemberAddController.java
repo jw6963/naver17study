@@ -3,6 +3,7 @@ package member.controller;
 import data.dto.MemberDto;
 import data.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
+import naver.storage.NcpObjectStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,12 @@ import java.util.UUID;
 public class MemberAddController {
     @Autowired
     MemberService memberService;
+
+    // 버킷 이름
+    private String bucketName = "bitcamp-bucket";
+
+    @Autowired
+    NcpObjectStorageService storageService;
 
     @GetMapping("/form")
     public String form() {
@@ -55,15 +62,17 @@ public class MemberAddController {
         if (filename.equals("") || filename == null || filename.isEmpty()) {
             uploadFileName = "no";
         } else {
-            // 파일명을 랜덤값.확장자 형식으로 만들기(UUID)
-            String extension = filename.substring(filename.lastIndexOf(".") + 1);
-            uploadFileName = UUID.randomUUID() + "." + extension;
-            // 업로드
-            try {
-                upload.transferTo(new File(uploadFolder + "/" + uploadFileName));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+//            // 파일명을 랜덤값.확장자 형식으로 만들기(UUID)
+//            String extension = filename.substring(filename.lastIndexOf(".") + 1);
+//            uploadFileName = UUID.randomUUID() + "." + extension;
+//            // 업로드
+//            try {
+//                upload.transferTo(new File(uploadFolder + "/" + uploadFileName));
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+
+            // 네이버 스토리지에 사진 저장하기 - 네이버 오브젝트 스토리지에 사진을 업로드 후 업로드한 파일 명을 반환
         }
         dto.setMphoto(uploadFileName);
         memberService.addMember(dto);

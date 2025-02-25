@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"data.*","*.controller","com.demo.springmybatismvc3"})
+@ComponentScan({"data.*","*.controller","com.demo.springmybatismvc3", "naver.*"})
 @MapperScan({"data.mapper"})
 public class SpringMybatisMvc3Application {
 

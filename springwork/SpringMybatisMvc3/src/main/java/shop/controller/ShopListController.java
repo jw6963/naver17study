@@ -18,6 +18,11 @@ public class ShopListController {
     @Autowired
     private ShopRepleService shopRepleService;
 
+    private String naverurl = "https://kr.object.ncloudstorage.com/bitcamp-bucket";
+    private String fronturl = "https://lumr99uh8720.edge.naverncp.com/MrrbyGGKhq";
+    private String backurl = "?type=f&w=100&h=120&faceopt=true&ttype=jpg";
+
+
     @GetMapping("/shop/list")
     public String shopList(Model model) {
         // 총 상품 갯수
@@ -35,6 +40,9 @@ public class ShopListController {
         }
         model.addAttribute("totalCount", totalCount);
         model.addAttribute("list", list);
+        model.addAttribute("naverurl", naverurl);
+        model.addAttribute("fronturl", fronturl);
+        model.addAttribute("backurl", backurl);
         // foward
         return "shop/shoplist";
     }

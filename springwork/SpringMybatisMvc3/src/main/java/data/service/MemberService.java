@@ -32,8 +32,25 @@ public class MemberService {
         memberMapper.deleteMember(num);
     }
 
-    public MemberDto getMember(int num) {
+    public MemberDto getMemberByNum(int num) {
 
         return memberMapper.getOneByNum(num);
+    }
+
+    public MemberDto getMemberById(String id) {
+
+        return memberMapper.getOneById(id);
+    }
+
+    public boolean loginChk(String loginid, String loginpass) {
+        return memberMapper.loginChk(loginid,loginpass)==1?true:false;
+    }
+
+    public void changePhoto(int num, String mphoto) {
+        memberMapper.changePhoto(num,mphoto);
+    }
+
+    public void updateMember(MemberDto member) {
+        memberMapper.updateMember(member);
     }
 }

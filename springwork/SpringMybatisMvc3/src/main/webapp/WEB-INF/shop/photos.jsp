@@ -64,7 +64,8 @@
             <h5>There is no Image</h5>
         </c:if>
         <c:forTokens var="onePhoto" items="${sphoto}" delims=",">
-            <img src="../save/${onePhoto}">
+<%--            <img src="../save/${onePhoto}">--%>
+            <img src="${fronturl}/shop/${onePhoto}?type=f&w=100&h=100&faceopt=true&ttype=jpg">
             <i class="bi bi-x-circle photodel" pname="${onePhoto}"></i>
         </c:forTokens>
     </div>

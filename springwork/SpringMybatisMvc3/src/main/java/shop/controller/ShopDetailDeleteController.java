@@ -104,6 +104,10 @@ public class ShopDetailDeleteController {
             } else {
                 sphoto = sphoto.replace(pname,"");
             }
+            // 첫 글자가 콤마로 시작하면 콤마 제거
+            if (sphoto.startsWith(",")) {
+                sphoto = sphoto.substring(1);
+            }
         }
 //        String uploadPath = request.getSession().getServletContext().getRealPath("/save");
 //        File file = new File(uploadPath+"/"+pname);

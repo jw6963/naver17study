@@ -108,14 +108,14 @@
                             <th width="80">아이디</th>
                             <td>
                                 <input type="text" id="loginid" placeholder="아이디"
-                                       class="form-control" required="required">
+                                       class="form-control" required="required" autocomplete="username">
                             </td>
                         </tr>
                         <tr>
                             <th width="80">비밀번호</th>
                             <td>
                                 <input type="password" id="loginpass" placeholder="비밀번호"
-                                       class="form-control" required="required">
+                                       class="form-control" required="required" autocomplete="current-password">
                             </td>
                         </tr>
                         <tr>

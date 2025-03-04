@@ -22,4 +22,11 @@ public class BoardFileService {
     {
         return fileMapper.getFiles(idx);
     }
+
+    public void deleteFile(int num) {
+        fileMapper.deleteFile(num);
+    }
+    public List<BoardFileDto> selectByIdxAndFilename(int idx, String filename){
+        return fileMapper.selectByIdxAndFilename(idx,filename);
+    }
 }

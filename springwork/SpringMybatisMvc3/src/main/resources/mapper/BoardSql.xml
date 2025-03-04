@@ -28,8 +28,14 @@
         select * from board where idx=#{idx}
     </select>
     <select id="getSelectById" parameterType="String" resultType="BoardDto">
-        select * from board where myid=#{myid}
+        select * from board where myid=#{myid} order by idx desc
     </select>
+    <update id="updateBoard" parameterType="BoardDto">
+        update board set subject=#{subject}, content=#{content} where idx=#{idx}
+    </update>
+    <delete id="deleteBoard" parameterType="int">
+        delete from board where idx=#{idx}
+    </delete>
 </mapper>
 
 

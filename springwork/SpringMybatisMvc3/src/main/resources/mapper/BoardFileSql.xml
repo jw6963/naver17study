@@ -10,6 +10,9 @@
     <delete id="deleteFile" parameterType="int">
         delete from boardfile where num=#{num}
     </delete>
+    <select id="selectByIdxAndFilename" parameterType="map" resultType="BoardFileDto">
+        select * from boardfile where idx=#{idx} and filename=#{filename} order by num
+    </select>
 </mapper>
 
 

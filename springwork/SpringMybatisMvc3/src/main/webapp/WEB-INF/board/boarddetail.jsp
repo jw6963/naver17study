@@ -23,6 +23,24 @@
         body * {
             font-family: 'Jua';
         }
+
+        .w-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 100px;
+            position: relative;
+            top: -10px;
+        }
+
+        .files img {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            margin: 20px;
+        }
+
+        .files {
+        }
     </style>
 </head>
 <body>
@@ -34,5 +52,75 @@
         history.back();
     </script>
 </c:if>
+<div style="margin: 30px;">
+    <h2>${dto.subject}</h2>
+    <div class="writer-box">
+        <img src="${naverurl}/member/${profile}" onerror="this.src='../save/noimage.png'"
+             class="w-photo">
+        <div style="display: inline-block; margin-left: 10px;">
+            <span>
+                ${dto.writer}
+            </span>
+            <br>
+            <span style="color: gray; font-size: 12px;">
+                <fmt:formatDate value="${dto.writeday}" pattern="yyyy.MM.dd HH:mm"/>
+                &nbsp;&nbsp;조회&nbsp;${dto.readcount}
+            </span>
+        </div>
+    </div>
+    <pre style="margin-top: 30px; font-size: 15px;">
+        ${dto.content}
+    </pre>
+    <div class="files">
+        <c:forEach var="file" items="${files}">
+            <img src="${naverurl}/board/${file}" alt="">
+        </c:forEach>
+    </div>
+    <div style="margin-top: 30px; display: flex;">
+        <div>
+            <button type="button" class="btn btn-success btn-sm" style="width: 80px;"
+                    onclick="location.href='./writeform'">
+                <i class="bi bi-pencile-fill"></i>
+                글쓰기
+            </button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" style="width: 80px;"
+                    onclick="location.href='./writeform?idx=${dto.idx}&regroup=${dto.regroup}&restep=${dto.restep}&relevel=${dto.relevel }&pageNum=${pageNum}'">
+                답글쓰기
+            </button>
+            <c:if test="${sessionScope.loginid==dto.myid}">
+                <button type="button" class="btn btn-outline-secondary btn-sm" style="width: 80px;"
+                        onclick="location.href='./updateform?idx=${dto.idx}&pageNum=${pageNum}'">
+                    수정
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" style="width: 80px;"
+                        id="btn-del">
+                    삭제
+                </button>
+            </c:if>
+        </div>
+        <button type="button" class="btn btn-outline-secondary btn-sm"
+                style="width: 80px; margin-left: 50px;"
+                onclick="location.href='./list?idx=${dto.idx}&pageNum=${pageNum}'">
+            목록
+        </button>
+
+    </div>
+</div>
 </body>
 </html>
+<script>
+    $("#btn-del").click(function () {
+        if (confirm("삭제하시겠습니까?")) {
+            $.ajax({
+                type: "get",
+                dataType: "text",
+                url: "./deleteBoard?pageNum=" +${pageNum},
+                data: {"idx":${dto.idx}, "pageNum":${pageNum}},
+                success: function () {
+                    location.href = "./list?pageNum=" +
+                    ${pageNum}
+                }
+            })
+        }
+    })
+</script>

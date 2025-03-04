@@ -15,5 +15,7 @@ public interface BoardMapper {
     public List<BoardDto> getPagingList(int start,int perpage);
     public void updateReadcount(int idx);
     public BoardDto getSelectByIdx(int idx);
-    public BoardDto getSelectById(String myid);
+    public List<BoardDto> getSelectById(String myid);
+    public void updateBoard(BoardDto dto);
+    public void deleteBoard(int idx);
 }

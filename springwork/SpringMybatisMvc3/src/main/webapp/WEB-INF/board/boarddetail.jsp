@@ -41,9 +41,77 @@
 
         .files {
         }
+
+        .replecamera {
+            font-size: 1.4em;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .replephoto img {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        .replephotodel {
+            cursor: pointer;
+            top: -10px;
+            left: -10px;
+        }
+
+        .replelist .profile {
+            width: 30px;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 100px;
+            margin-right: 10px;
+        }
+
+        .replelist .day {
+            color: #ccc;
+            font-size: 13px;
+            margin-left: 10px;
+        }
+
+        .replelist .photo {
+            width: 120px;
+            height: 120px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .replelist {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
+<div class="modal" id="myRepleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">원본 사진</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <img src="" class="modal-photo" style="max-width: 100%">
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <jsp:include page="../../layout/title.jsp"/>
 <%--   로그인 안 된 경우 경고 후 이전 페이지로 이동  --%>
 <c:if test="${sessionScope.loginstatus==null}">
@@ -75,6 +143,81 @@
         <c:forEach var="file" items="${files}">
             <img src="${naverurl}/board/${file}" alt="">
         </c:forEach>
+    </div>
+    <div class="replelist"></div>
+    <div style="margin-top: 30px;width: 500px;border: 1px solid gray;">
+        <b style="padding: 5px;">${sessionScope.loginid}</b><br>
+
+        <textarea style="width: 100%;height:80px;" id="message"
+                  class="form-control"></textarea>
+
+        <div class="replephoto" style="margin-bottom:10px;padding-left:10px; "></div>
+
+        <input type="file" id="fileupload" style="display: none;">
+        <i class="bi bi-camera replecamera"></i>
+        <button type="button" style="border:1px solid black;float: right;margin-right: 10px;"
+                id="btnreplesave">저장
+        </button>
+
+        <script>
+            $(".replecamera").click(function () {
+                $("#fileupload").trigger("click");
+            });
+
+            $("#fileupload").change(function (e) {
+                let form = new FormData();
+                form.append("upload", e.target.files[0]);
+                $.ajax({
+                    type: "post",
+                    dataType: "text",
+                    data: form,
+                    processData: false,
+                    contentType: false,
+                    url: "./repleupload",
+                    success: function (res) {
+                        $(".replephoto").html(`
+								<img src="${naverurl}/board/\${res}">
+								<i class="bi bi-x-circle-fill replephotodel" fname="\${res}"></i>`);
+                    }
+                });
+            });
+
+            $(document).on("click", ".replephotodel", function () {
+                let close = $(this);//x 아이콘
+                let fname = close.attr("fname");
+                $.ajax({
+                    type: "get",
+                    dataType: "text",
+                    data: {"fname": fname},
+                    url: "./replephotodel",
+                    success: function () {
+                        close.prev().remove();//x아이콘 바로 앞의 사진 삭제
+                        close.remove();//자기 자신인 x아이콘도 삭제
+                    }
+                });
+            });
+
+            //댓글 저장
+            $("#btnreplesave").click(function () {
+                let idx =${dto.idx};
+                let m = $("#message").val();
+
+                $.ajax({
+                    type: "post",
+                    dataType: "text",
+                    data: {"idx": idx, "message": m},
+                    url: "./addreple",
+                    success: function () {
+                        //댓글 추가 성공후 초기화
+                        $("#message").val("");
+                        $(".replephoto").html("");
+                        //추가 성공후 댓글 목록 다시 출력
+                        alert("댓글 저장 성공");
+                        replelist();
+                    }
+                });
+            });
+        </script>
     </div>
     <div style="margin-top: 30px; display: flex;">
         <div>
@@ -109,6 +252,67 @@
 </body>
 </html>
 <script>
+    $(function(){
+        replelist();
+
+        $(document).on("click",".redel>a",function (){
+            // num 읽기
+            let num=$(this).attr("num");
+            let ans=confirm("해당 댓글을 삭제할까요?");
+            if(ans) {
+                $.ajax({
+                    type:"get",
+                    dataType:"text",
+                    data:{"num":num},
+                    url:"./repledel",
+                    success: function () {
+                        // 댓글 삭제 후 댓글 목록 다시 출력
+                        replelist();
+                    }
+                })
+            }
+        })
+    });
+
+    function replelist()
+    {
+        $.ajax({
+            type:"get",
+            dataType:"json",
+            data:{"idx":${dto.idx}},
+            url:"./replelist",
+            success:function(res){
+                let s="";
+                $.each(res,function(i,item){
+                    s+=`
+     						<img src="${naverurl}/member/\${item.profile}" class="profile">
+     						<span>\${item.writer}</span><span class="day">\${item.writeday}</span>
+     						<span class="remod" style="margin-left:10px;">
+     						<a href="#" style="color:gray;font-size:0.9em;" num="\${item.num}">수정</a></span>
+     						<span class="redel" style="margin-left:5px;">
+     						<a href="#" style="color:gray;font-size:0.9em;" num="\${item.num}">삭제</a></span>
+     						<div style="margin-left:20px;">
+     							<pre style="font-size:15px;">\${item.message}</pre>
+     							<br>`;
+                    if(item.photo!=null)
+                        s+=`<img src="${naverurl}/board/\${item.photo}" class="photo"
+                        data-bs-toggle="modal" data-bs-target="#myRepleModal"><br><br>`;
+
+                    s+=`</div>`;
+
+                });
+                $(".replelist").html(s);
+            }
+        });
+    }
+    // 댓글의 작은 사진 클릭 시 원본 사진 모달로 나오게 하기
+    $(document).on("click", "img.photo", function (){
+        // 현재 사진 src 얻기
+        let imgSrc=$(this).attr("src");
+        // modal 사진에 넣기
+        $(".modal-photo").attr("src",imgSrc);
+    })
+
     $("#btn-del").click(function () {
         if (confirm("삭제하시겠습니까?")) {
             $.ajax({

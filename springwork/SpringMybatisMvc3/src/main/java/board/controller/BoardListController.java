@@ -1,6 +1,7 @@
 package board.controller;
 
 import data.dto.BoardDto;
+import data.service.BoardRepleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ public class BoardListController {
     final BoardService boardService;
     final BoardFileService fileService;
     final MemberService memberService;
+    final BoardRepleService repleService;
 
     @GetMapping("/board/list")
     public String list(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
@@ -62,6 +64,8 @@ public class BoardListController {
             BoardDto dto=list.get(i);
             int count = fileService.getFiles(dto.getIdx()).size();
             list.get(i).setPhotocount(count);
+            int repleCount=repleService.getSelectedReples(dto.getIdx()).size();
+            list.get(i).setRepleCount(repleCount);
         }
 
         // 각페이지의 글앞에 출력할 시작번호(예:총글이 20개일경우 1페이지는 20,2페이이즌 15..)

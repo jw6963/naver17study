@@ -88,6 +88,10 @@
                         <c:if test="${dto.photocount==1}">
                             <i class="bi bi-image p-icon"></i>
                         </c:if>
+                            &nbsp;
+                            <c:if test="${dto.repleCount>0}">
+                                <span style="color: red">[${dto.repleCount}]</span>
+                            </c:if>
                         </a>
                     </td>
                     <td align="center">

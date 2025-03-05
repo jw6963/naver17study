@@ -16,3 +16,13 @@ create table boardfile (
                            filename varchar(50),
                            foreign key(idx) references board(idx)
                                on delete cascade);
+
+create table boardreple (
+                            num smallint auto_increment primary key,
+                            idx smallint,
+                            myid varchar(30),
+                            message varchar(1000),
+                            photo varchar(50),
+                            writeday datetime,
+                            foreign key(idx) references board(idx)
+                                on delete cascade);

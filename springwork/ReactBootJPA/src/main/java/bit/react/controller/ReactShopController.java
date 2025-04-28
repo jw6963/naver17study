@@ -50,6 +50,9 @@ public class ReactShopController {
     @PostMapping(value = "/upload")
     public String upload(@RequestParam("upload") MultipartFile upload) {
         // 스토리지에 업로드
+        if(uploadFileName != null) {
+            storageService.deleteFile(bucketName, folderName, uploadFileName);
+        }
         uploadFileName = storageService.uploadFile(bucketName, folderName, upload);
 
         return uploadFileName;
@@ -75,5 +78,27 @@ public class ReactShopController {
         shopDao.deleteShop(num);
 
         return "delete ok!";
+    }
+
+    @PostMapping("/shopupdate")
+    public String updateShop(@RequestBody ShopDto dto) {
+//        ShopEntity entity = shopDao.getData(dto.getNum());
+//        entity.setSangpum(dto.getSangpum());
+//        entity.setPrice(dto.getPrice());
+//        entity.setSangguip(dto.getSangguip());
+//        entity.setColor(dto.getColor());
+//        entity.setPhoto(uploadFileName);
+//        shopDao.updateShop(entity);
+        ShopEntity entity = ShopEntity.builder()
+                .sangpum(dto.getSangpum())
+                .color(dto.getColor())
+                .price(dto.getPrice())
+                .sangguip(dto.getSangguip())
+                .num(dto.getNum())
+                .photo(uploadFileName)
+                .build();
+        shopDao.updateShop(entity);
+        uploadFileName = null;
+        return "update ok!";
     }
 }

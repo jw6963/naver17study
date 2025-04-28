@@ -2,6 +2,7 @@ package bit.react.repository;
 
 import bit.react.data.ShopEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public class ShopDao {
 
     // 전체 목록
     public List<ShopEntity> findAll() {
-        return shopRepository.findAll();
+//        return shopRepository.findAll(); // 추가된 순서대로
+        return shopRepository.findAll(Sort.by(Sort.Direction.DESC, "num"));
     }
 
     // 한 개의 데이터 반환
@@ -33,6 +35,11 @@ public class ShopDao {
 
     // 수정
     public void updateShop(ShopEntity shopEntity) {
-        shopRepository.save(shopEntity); // num이 포함되어 있으므로 수정됨
+        if (shopEntity.getPhoto() == null) {
+            shopRepository.updateShopNoPhoto(shopEntity); // photo 수정에서 제외
+        } else {
+            shopRepository.save(shopEntity); // num이 포함되어 있으므로 수정됨
+        }
     }
+
 }

@@ -1,30 +1,43 @@
 server:
   port: 8090
-  
+
 #mysql setting  
-spring:  
+spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://db-32tf6a-kr.vpc-pub-cdb.ntruss.com:13306/studydb?serverTimezone=Asia/Seoul
     username: semi
-    password: bitcamp!@#123 
+    password: bitcamp!@#123
 
-#jpa setting
-#스키마 생성 create:기존테이블삭제후 생성, update:변경된 부분만 반영
+  #jpa setting
+  #스키마 생성 create:기존테이블삭제후 생성, update:변경된 부분만 반영
   jpa:
     hibernate:
       ddl-auto: update
-#ddl 생성시 데이타베이스 고유의 기능을 사용할 것인가     
+    #ddl 생성시 데이타베이스 고유의 기능을 사용할 것인가
     generate-ddl: true
-#api 호출시 실행되는 sql 문을 콘솔에 보여줄것인가   
+    #api 호출시 실행되는 sql 문을 콘솔에 보여줄것인가
     show-sql: true
-#사용할 데이타베이스 종류    
+    #사용할 데이타베이스 종류
     database: mysql
-#Mysql 상세지정   
+    #Mysql 상세지정
     database-platform: org.hibernate.dialect.MySQLDialect
-    
+
+#security
+jwt:
+  expiration_time: 86400000 # 1day
+  secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+
 #swagger doc
-springdoc:
-  api-docs:
-    path: /api/jpashop/swagger
+#springdoc:
+#  api-docs:
+#    path: /api/jpashop/swagger
 #http://localhost:8090/swagger-ui.html
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    additional-resources:
+      - url: https://unpkg.com/swagger-ui-themes@3.0.0/themes/3.x/theme-material.css
+  api-docs:
+    path: /v3/api-docs

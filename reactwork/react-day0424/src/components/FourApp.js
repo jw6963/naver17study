@@ -20,7 +20,6 @@ const FourApp = () => {
     const url = "http://localhost:8090/react";
     // 추가하는 함수
     const addShopEvent = (shopdata) => {
-        console.log(shopdata);
         axios.post(url + "/addshop", shopdata)
             .then(res => {
                 console.log(res);
@@ -41,6 +40,11 @@ const FourApp = () => {
                 console.log(error)
             })
     }
+    // 삭제 함수
+    const onDelete = (num) => {
+        let deleteUrl = "/react/shopdelete?num=" + num;
+        axios.delete(deleteUrl).then(res => getList());
+    }
     // 처음 시작 시 딱 한 번만 list 호출하기
     useEffect(() => {
         getList();
@@ -52,15 +56,16 @@ const FourApp = () => {
             <FourWriteShop onSave={addShopEvent}/>
             <hr/>
             <h5>총 {shoplist.length} 개의 상품이 있습니다</h5>
-            <table className={'table table-bordered'} style={{width:'500px'}}>
+            <table className={'table table-bordered'} style={{width: '500px'}}>
                 <tbody>
                 {
                     // 비동기 통신 특성상 약간의 시간을 두고 불러와지는 경우 가끔 오류가 발생하는 현상이 있음
                     shoplist
                     &&
-                    shoplist.map((row,idx)=>
-                    <FourRowItem key={idx} row={row}/>)
+                    shoplist.map((row, idx) =>
+                        <FourRowItem key={idx} row={row} onDelete={onDelete}/>)
                 }
+
                 </tbody>
             </table>
         </div>

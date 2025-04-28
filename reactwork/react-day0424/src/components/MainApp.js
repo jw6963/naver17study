@@ -1,5 +1,5 @@
-import { Alert, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import React, { useState } from 'react';
+import {Alert, FormControl, InputLabel, MenuItem, Select} from '@mui/material';
+import React, {useState} from 'react';
 import OneApp from './OneApp';
 import TwoApp from './TwoApp';
 import ThreeApp from './ThreeApp';
@@ -10,11 +10,11 @@ import SevenApp from './SevenApp';
 import EightApp from './EightApp';
 
 const MainApp = () => {
-    const [idx,setIdx]=useState(4);
+    const [idx, setIdx] = useState(4);
 
     return (
         <div>
-            <Alert severity='info' style={{fontSize:'25px'}}>2025-4-24 리액트 수업</Alert>
+            <Alert severity='info' style={{fontSize: '25px'}}>2025-4-24 리액트 수업</Alert>
             <hr/>
             {/* <div style={{width:'300px'}} className='input-group'>
                 <h5>App 선택 </h5>
@@ -32,10 +32,10 @@ const MainApp = () => {
             </div> */}
             <FormControl fullWidth>
                 <InputLabel>App</InputLabel>
-                <Select style={{width:'300px'}}               
-                value={idx}
-                label="Age"
-                onChange={(e)=>setIdx(e.target.value)}
+                <Select style={{width: '300px'}}
+                        value={idx}
+                        label="Age"
+                        onChange={(e) => setIdx(e.target.value)}
                 >
                     <MenuItem value={1}>OneApp</MenuItem>
                     <MenuItem value={2}>TwoApp</MenuItem>
@@ -44,13 +44,13 @@ const MainApp = () => {
                     <MenuItem value={5}>FiveApp</MenuItem>
                     <MenuItem value={6}>SixApp</MenuItem>
                     <MenuItem value={7}>SevenApp</MenuItem>
-                    <MenuItem value={8}>EightApp</MenuItem>                    
+                    <MenuItem value={8}>EightApp</MenuItem>
                 </Select>
             </FormControl>
             {
-                idx===1?<OneApp/>:idx===2?<TwoApp/>:idx===3?<ThreeApp/>
-                :idx===4?<FourApp/>:idx===5?<FiveApp/>:idx===6?<SixApp/>
-                :idx===7?<SevenApp/>:<EightApp/>
+                idx === 1 ? <OneApp/> : idx === 2 ? <TwoApp/> : idx === 3 ? <ThreeApp/>
+                    : idx === 4 ? <FourApp/> : idx === 5 ? <FiveApp/> : idx === 6 ? <SixApp/>
+                        : idx === 7 ? <SevenApp/> : <EightApp/>
             }
         </div>
     );
